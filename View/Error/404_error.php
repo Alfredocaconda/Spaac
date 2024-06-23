@@ -48,7 +48,7 @@
                   <br>
                   <h3>PÁGINA NÃO ENCONTRADA  !</h3>
                   <P>PARECE QUE ESTÁS A TENTAR ENCONTRAR O CAMINHO PARA CASA</P>
-                  <div class="center"><a class="main_bt" href="/">Ir para a página Inicial</a></div>
+                  <div class="center"><a class="main_bt" href="/login">Ir para a página Inicial</a></div>
                </div>
             </div>
          </div>

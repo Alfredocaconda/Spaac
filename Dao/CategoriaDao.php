@@ -4,42 +4,51 @@ class CategoriaDao{
     private $conexao;
     #contrutor de classes
     public function __construct(){
-        $dados="mysql:host=localhost:3306;dbname=spaac";
+        $dados="mysql:host=localhost:3306;dbname=venda";
         $this->conexao=new PDO($dados,'root','');
     }
     public function insert(CategoriaModel $model){
-        $sql="INSERT INTO categoria (nome_categoria,tipo_categoria) values (?,?)";
+        $sql="INSERT INTO categoria (nome,idf) values (?,?)";
         $valor=$this->conexao->prepare($sql);
-        $valor->bindValue(1,$model->nome_categoria);
-        $valor->bindValue(2,$model->tipo_categoria);
+        $valor->bindValue(1,$model->nome);
+        $valor->bindValue(2,$model->idf);
         $valor->execute();
     }
     public function update(CategoriaModel $model){
-        $sql="UPDATE categoria SET nome_categoria=?,tipo_categoria=? WHERE id_categoria=?";
+        $sql="UPDATE categoria SET nome=?,idf=? WHERE idcategoria=?";
         $valor=$this->conexao->prepare($sql);
-        $valor->bindValue(1,$model->nome_categoria);
-        $valor->bindValue(2,$model->tipo_categoria);
-        $valor->bindValue(3,$model->id_categoria );
+        $valor->bindValue(1,$model->nome);
+        $valor->bindValue(2,$model->idf);
+        $valor->bindValue(3,$model->idcategoria);
         $valor->execute();
     }
-    public function select(){
-        $sql="SELECT * FROM categoria";
-        $valor=$this->conexao->prepare($sql);
+    public function select($nome){
+        $valor=null;
+        if($nome == ""){
+            $sql="SELECT * FROM vcategoria order by idcategoria desc";
+            $valor=$this->conexao->prepare($sql);
+        }else{
+            $sql="SELECT * FROM vcategoria where nome like ?";
+            $valor=$this->conexao->prepare($sql);
+            $pesquisar = "%$nome%"; 
+            $valor->bindValue(1,$pesquisar);
+        }
         $valor->execute();
         return $valor->fetchAll(PDO::FETCH_CLASS);
     }
-    public function selectId(int $id_categoria ){
+ 
+    public function selectId(int $idcategoria){
         include_once "Model/CategoriaModel.php";
-        $sql="SELECT * FROM categoria WHERE id_categoria=?";
+        $sql="SELECT * FROM categoria WHERE idcategoria=?";
         $valor=$this->conexao->prepare($sql);
-        $valor->bindValue(1, $id_categoria );
+        $valor->bindValue(1, $idcategoria);
         $valor->execute();
         return $valor->fetchObject("CategoriaModel");
     }
-    public function delete(int $id_categoria ){
-        $sql="DELETE FROM categoria WHERE id_categoria=?";
+    public function delete(int $idcategoria){
+        $sql="DELETE FROM Categoria WHERE idcategoria=?";
         $valor=$this->conexao->prepare($sql);
-        $valor->bindValue(1, $id_categoria );
+        $valor->bindValue(1, $idcategoria);
         $valor->execute();
     }
    

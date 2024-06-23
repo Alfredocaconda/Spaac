@@ -1,7 +1,7 @@
 <?php
-     $host="localhost";
-     $usuario="root";
-     $senha="";
-     $db="spaac"; 
-
-     $conexao= new mysqli($host, $usuario, $senha,$db);
+$servidor="localhost";
+$usuario="root";
+$senha="";
+$bd="venda";
+$conn=new mysqli($servidor,$usuario,$senha,$bd);
+?>

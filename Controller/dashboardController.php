@@ -1,20 +1,27 @@
 <?php
-class dashboardController {
-    public static function auth(){
-        Middleware::auth();
-    
+#classe que irá mostrar erro
+include "Model/middleware.php";
+class dashboardController{
+    public static function Error404(){
+        include "View/Error/404_error.php";
     }
-    
-    public function __construct()
-    {
-        $this->auth();
+    public static function eliminado(){
+        include "View/Error/eliminado.php";
     }
     public static function dashboard(){
-        include "Model/monografiaModel.php";
-        $model=new monografiaModel();
-        $model->listar();
+        include "Model/VendaModel.php";
+        $modelagem=new VendaModel();
+        #chamando as fucnoes das 
+        if (isset($_POST['nome'])) {
+            # code...
+            $modelagem->listarVendas($_POST['nome']);
+        } else {
+            $modelagem->listarVendas("");
+           # code...
+        }
+        #incluindo o formulario para poder mostrar todos os produtos
         Middleware::auth();
-        include "View\Modules\dashboard\dashboard.php";
+        include "View/modules/dashboard/dashboard.php";
     }
 }
 ?>

@@ -123,7 +123,6 @@ a {
     -ms-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    
 }
 
 h1,
@@ -750,7 +749,6 @@ a:focus {
     font-weight: 600;
     width: 19px;
     height: 19px;
-    
 }
 
 .icon_info ul.user_profile_dd li div a {

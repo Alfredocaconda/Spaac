@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="PT">
+<html lang="en">
    <head>
       <!-- basic -->
       <meta charset="utf-8">
@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>SPAAC</title>
+      <title>YSJ</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -34,7 +34,12 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-              <!--Link para Reajuste-->
+      <style>
+        h2{
+            color:white;
+            font-size: 50pt;
+        }
+      </style>
    </head>
    <body class="inner_page login">
       <div class="full_container">
@@ -43,8 +48,7 @@
                <div class="login_section">
                   <div class="logo_login">
                      <div class="center">
-                        
-                     <img width="210" src="../../logotipo/spaac1.jpg" alt="#" />
+                    <img width="210" src="../../../logotipo/logotipo.png" alt="#" />
                      </div>
                   </div>
                   <div class="login_form">
@@ -58,16 +62,9 @@
                               <label class="label_field">Senha</label>
                               <input type="password" name="password" placeholder="Senha" />
                            </div>
-                           <div class="field">
-                              <label class="label_field hidden">hidden label</label>
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input"> Lembrem-se de Mim</label>
-                              <a class="forgot" href="">Senha Esquecida?</a>
-                           </div>
                            <div class="field margin_0">
                               <label class="label_field hidden">hidden label</label>
                               <button class="main_bt">Entrar</button>
-                              <a href="/cadastrarUsuario/form" class="btn btn-success">Cadastrar</a>
                            </div>
                         </fieldset>
                      </form>

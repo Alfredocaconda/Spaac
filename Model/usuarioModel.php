@@ -1,42 +1,45 @@
 <?php
+class UsuarioModel {
+    private $idv;
+    private $qtdrequerida;
+    private $totalCompra;
+    private $datavenda;
+    private $fatura;
+    private $idf ;
+    private $idp;
 
-class usuarioModel{
-    public $id_usuario,$nome_usuario,$tipo_usuario,$email_usuario,$senha_usuario;
-    public $linhas;
-    
-    public function save(){
-        include 'Dao/usuarioDao.php';
-        $dados=new usuarioDao();
-        if (empty($this->id_usuario )) {
-            # code...
-            $dados->insert($this);
-        } else {
-            # code...
-            $dados->update($this);
-        }
+    public function __construct($idv,$qtdrequerida,$totalCompra,$datavenda,$fatura,$idf,$idp) {
+        $this->idv = $idv;
+        $this->qtdrequerida = $qtdrequerida;
+        $this->totalCompra = $totalCompra;
+        $this->datavenda = $datavenda;
+        $this->fatura = $fatura;
+        $this->idf = $idf;
+        $this->idp = $idp;
     }
-    public function listar(){
-        include 'Dao/usuarioDao.php';
-        $dados=new usuarioDao();
-       $this->linhas= $dados->select();
+
+    public function getIdv() {
+        return $this->idv;
     }
-    public function listarId(int $id_usuario ){
-        include 'Dao/usuarioDao.php';
-        $dados=new usuarioDao();
-        $obj=$dados->selectId($id_usuario );
-        #codigo para nao receber id desconhecidos
-        
-        return ($obj) ? $obj :new usuarioModel(); #operador ternario
-       /* if($obj){
-            return $obj;
-        }else{
-            return new usuarioModel();
-        }*/
+
+    public function getqtdrequerida() {
+        return $this->qtdrequerida;
     }
-    public function delete(int $id_usuario ){
-        include 'Dao/usuarioDao.php';
-        $dados=new usuarioDao();
-        $dados->delete($id_usuario );
-    } 
+
+    public function gettotalCompra() {
+        return $this->totalCompra;
+    }
+    public function getdatavenda() {
+        return $this->datavenda;
+    }
+    public function getfatura() {
+        return $this->fatura;
+    }
+    public function getidf() {
+        return $this->idf;
+    }
+    public function getidp() {
+        return $this->idp;
+    }
 }
 ?>
