@@ -1,12 +1,21 @@
 <?php
 
 class CategoriaController{
-
+    public static function auth(){
+        Middleware::auth();
+    
+    }
+    
+    public function __construct()
+    {
+        $this->auth();
+    }
 public static function index(){
    // isProtected();
     include "Model/CategoriaModel.php";
     $model=new CategoriaModel();
     $model->listar();
+    Middleware::auth();
     include 'View/Modules/Categoria/listar_categoria.php';
 }
 public static function form(){
@@ -14,7 +23,7 @@ public static function form(){
     $model=new CategoriaModel();
     if (isset($_GET['id_categoria']))
     $model= $model->listarId((int) $_GET['id_categoria']);
-   // var_dump($model);
+    Middleware::auth();
     include 'View/Modules/Categoria/formCategoria.php';
 } 
 public static function save(){
@@ -25,6 +34,7 @@ public static function save(){
     $model->nome_categoria=$_POST['nome_categoria'];
     $model->tipo_categoria=$_POST['tipo_categoria'];
     $model->save();
+    Middleware::auth();
     header("Location: /categoria");
 }
 public static function delete(){
@@ -32,6 +42,7 @@ public static function delete(){
     
     $model=new CategoriaModel();
     $model->delete((int) $_GET['idcategoria']);
+    Middleware::auth();
     header("Location: /categoria");
 
 }

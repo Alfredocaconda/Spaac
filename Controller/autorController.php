@@ -1,12 +1,21 @@
 <?php
 
 class autorController{
-
+    public static function auth(){
+        Middleware::auth();
+    
+    }
+    
+    public function __construct()
+    {
+        $this->auth();
+    }
 public static function index(){
    // isProtected();
     include "Model/autorModel.php";
     $model=new autorModel();
     $model->listar();
+    Middleware::auth();
     include 'View/Modules/autor/listarautor.php';
 }
 public static function form(){
@@ -14,7 +23,7 @@ public static function form(){
     $model=new autorModel();
     if (isset($_GET['id_autor']))
     $model= $model->listarId((int) $_GET['id_autor']);
-   // var_dump($model);
+    Middleware::auth();
     include 'View/Modules/autor/formautor.php';
 } 
 public static function save(){
@@ -28,6 +37,7 @@ public static function save(){
     $model->grau_academico=$_POST['grau_academico'];
     $model->id_usuario=$_POST['id_usuario'];
     $model->save();
+    Middleware::auth();
     header("Location: /autor");
 }
 public static function delete(){
@@ -35,6 +45,7 @@ public static function delete(){
     
     $model=new autorModel();
     $model->delete((int) $_GET['id_autor']);
+    Middleware::auth();
     header("Location: /autor");
 
 }

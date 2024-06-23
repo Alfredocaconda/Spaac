@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sensive Blog - Home</title>
+  <title>SPAAC-Home</title>
 	<link rel="icon" href="../../../../img/Fevicon.png" type="../../../../img/png">
 
   <link rel="stylesheet" href="../../vendors/bootstrap/bootstrap.min.css">
@@ -84,114 +84,136 @@
       </div>
     </section>
     <!--================Hero Banner end =================--> 
-    <?php
-        # chamando a conexao e a funcao...
-        include './Connection/conexao.php';
-        //pegar os dados apartir do banco de dados
-        $sql2="SELECT * FROM monografia ORDER BY nome ASC
-        LIMIT 8 OFFSET 2";
-        //executar a query que ira ser declarado uma variavel que ira receber a conexao e os dados do banco de dados
-        //esta variavel ira receber todos os objectos do banco de dados
-        $dados2=mysqli_query($conexao,$sql2); 
-        while ($linha=mysqli_fetch_assoc($dados2)) {
-            $nome=$linha['nome'];
-            $imagem=$linha['imagem'];
-              if (!$imagem==null) {
-              # code...
-              $mostrar_foto="<img src='restrito/img/$imagem' class='listar_foto'>";
-              }
-              else {
-              # code...
-              $mostrar_foto='';
-              }
-      ?> 
     <!--================ Blog slider start =================--> 
-    <h1> DESTAQUES ARTIGOS CIENTIFICOS</h1>  
+    <h1>DESTAQUES DAS MONOGRAFIAS</h1>
+    
     <section>
       <div class="container">
         <div class="owl-carousel owl-theme blog-slider">
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
-              <?php require'lista.php'?>
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide1.png" alt="">
             </div>
             <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../ARTIGOS/">LER</a>
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide2.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide3.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide1.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide2.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide3.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
               <h3><a href="#">New york fashion week's continued the evolution</a></h3>
               <p>2 days ago</p>
             </div>
           </div>
         </div>
       </div>
-      <?php
-      }
-      ?>
     </section>
-    <!---FIM ESTRELA-->
-    
-    <!--================ Blog slider end =================-->  
-
-
-    <!--================ Blog slider start =================--> 
-    <H1>DESTAQUES DAS MONOGRAFIAS</H1> 
+    <!----============ARTIGO CIENTIFICO============-->
+    <h1>DESTAQUES DOS ARTIGOS CIENTIFICOS</h1> 
     <section>
       <div class="container">
         <div class="owl-carousel owl-theme blog-slider">
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
-            <?php require'lista1.php'?>
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide1.png" alt="">
             </div>
             <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
+              <a class="blog__slide__label" href="#">Fashion</a>
               <h3><a href="#">New york fashion week's continued the evolution</a></h3>
               <p>2 days ago</p>
             </div>
           </div>
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
-            <?php require'lista1.php'?>
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide2.png" alt="">
             </div>
             <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
+              <a class="blog__slide__label" href="#">Fashion</a>
               <h3><a href="#">New york fashion week's continued the evolution</a></h3>
               <p>2 days ago</p>
             </div>
           </div>
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
-            <?php require'lista1.php'?>
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide3.png" alt="">
             </div>
             <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
+              <a class="blog__slide__label" href="#">Fashion</a>
               <h3><a href="#">New york fashion week's continued the evolution</a></h3>
               <p>2 days ago</p>
             </div>
           </div>
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
-            <?php require'lista1.php'?>
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide1.png" alt="">
             </div>
             <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
+              <a class="blog__slide__label" href="#">Fashion</a>
               <h3><a href="#">New york fashion week's continued the evolution</a></h3>
               <p>2 days ago</p>
             </div>
           </div>
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
-            <?php require'lista1.php'?>
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide2.png" alt="">
             </div>
             <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
+              <a class="blog__slide__label" href="#">Fashion</a>
               <h3><a href="#">New york fashion week's continued the evolution</a></h3>
               <p>2 days ago</p>
             </div>
           </div>
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
-            <?php require'lista1.php'?>
+              <img class="card-img rounded-0" src="../../img/blog/blog-slider/blog-slide3.png" alt="">
             </div>
             <div class="blog__slide__content">
-            <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a> 
+              <a class="blog__slide__label" href="#">Fashion</a>
               <h3><a href="#">New york fashion week's continued the evolution</a></h3>
               <p>2 days ago</p>
             </div>

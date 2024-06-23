@@ -1,11 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION['usuario_logado'])) {
-    # code...
-   // header("Location: /");
-}
 
-?>
 <!DOCTYPE html>
 <html lang="pt">
    <head>

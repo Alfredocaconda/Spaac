@@ -3,7 +3,7 @@ class LoginDAO {
     private $conexao;
     #contrutor de classes
     public function __construct(){
-        $dados="mysql:host=localhost:3306;dbname=spabd";
+        $dados="mysql:host=localhost:3306;dbname=spaac";
         $this->conexao=new PDO($dados,'root','');
     }
     public static function index(){
@@ -14,7 +14,7 @@ class LoginDAO {
     }
     public function autenticar(LoginModel $model){
 
-    $sql="SELECT * FROM usuario where email=? and senha=sha1(?)";
+    $sql="SELECT * FROM usuario where email_usuario=? and senha_usuario=?";
 
     $valor=$this->conexao->prepare($sql);
     $valor->bindValue(1,$model->email);

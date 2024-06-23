@@ -35,7 +35,6 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
               <!--Link para Reajuste-->
-              <link rel="stylesheet" href="../../../css/StyleGeral.css">
    </head>
    <body class="inner_page login">
       <div class="full_container">
