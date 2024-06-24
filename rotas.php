@@ -25,20 +25,39 @@ include "Controller/dashboardController.php";
  try {
     //code...
     switch ($url) {
-        case '/':
+
+        case '/principal':
             # rota da pagina inicial...
             principalController::index();
             break;
+        case '/principal2':
+            # rota da pagina inicial...
+            principalController::principal2();
+            break;
 
-        case '/dashboard':
+        case '/':
                 # rota da para o Início do Dashboard...
                 dashboardController::dashboard();
                 break;
 
-        case '/login':
-            # rota para autenticar...
+         case '/login':
+            # rota da pagina inicial...
             LoginController::index();
             break;
+            
+            case '/logout':
+                # rota da pagina inicial...
+                session_start();
+                unset($_SESSION['nome_usuario']);
+                unset($_SESSION['tipo_usuario']);
+                principalController::index();
+                break;
+                
+            case '/autenticacao':
+                # rota para autenticar...
+                LoginController::autenticar();
+                break;
+
         case '/cadastrarUsuario':
             # rota para autenticar...
             LoginController::save();

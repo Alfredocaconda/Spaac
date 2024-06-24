@@ -30,12 +30,7 @@
       <link rel="stylesheet" href="css/custom.css" />
       <!-- calendar file css -->
       <link rel="stylesheet" href="js/semantic.min.css" />
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-              <!--Link para Reajuste-->
-              <link rel="stylesheet" href="../../../css/StyleGeral.css">
+     
    </head>
    <body class="inner_page login">
       <div class="full_container">
@@ -59,12 +54,7 @@
                               <label class="label_field">Senha</label>
                               <input type="password" name="password" placeholder="Senha" />
                            </div>
-                           <div class="field">
-                              <label class="label_field hidden">hidden label</label>
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input"> Lembrem-se de Mim</label>
-                              <a class="forgot" href="">Senha Esquecida?</a>
-                           </div>
+                          
                            <div class="field margin_0">
                               <label class="label_field hidden">hidden label</label>
                               <button class="main_bt">Entrar</button>

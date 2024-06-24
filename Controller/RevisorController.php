@@ -1,12 +1,21 @@
 <?php
 
 class RevisorController{
-
+    public static function auth(){
+        Middleware::auth();
+    
+    }
+    
+    public function __construct()
+    {
+        $this->auth();
+    }
 public static function index(){
    // isProtected();
     include "Model/RevisorModel.php";
     $model=new RevisorModel();
     $model->listar();
+    Middleware::auth();
     include 'View/Modules/Revisor/listarRevisor.php';
 }
 public static function form(){
@@ -14,7 +23,7 @@ public static function form(){
     $model=new RevisorModel();
     if (isset($_GET['id_revisor']))
     $model= $model->listarId((int) $_GET['id_revisor']);
-   // var_dump($model);
+    Middleware::auth();
     include 'View/Modules/Revisor/formRevisor.php';
 } 
 public static function save(){
@@ -26,6 +35,7 @@ public static function save(){
     $model->email_revisor=$_POST['email_revisor'];
     $model->id_usuario=$_POST['id_usuario'];
     $model->save();
+    Middleware::auth();
     header("Location: /Revisor");
 }
 public static function delete(){
@@ -33,6 +43,7 @@ public static function delete(){
     
     $model=new RevisorModel();
     $model->delete((int) $_GET['id_revisor']);
+    Middleware::auth();
     header("Location: /Revisor");
 
 }

@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['usuario_logado'])) {
-    # code...
-   // header("Location: /");
-}
-
-?>
 <!DOCTYPE html>
 <html lang="pt">
    <head>
@@ -41,14 +33,6 @@ if (!isset($_SESSION['usuario_logado'])) {
       <link rel="stylesheet" href="../../../css/perfect-scrollbar.css" />
       <!-- custom css -->
       <link rel="stylesheet" href="../../../css/custom.css" />
-  
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-
-       
-     
           
    </head>
    <body class="dashboard dashboard_1">
@@ -67,7 +51,7 @@ if (!isset($_SESSION['usuario_logado'])) {
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>User</h6>
+                           <h6><?php echo $_SESSION['nome_usuario'] ?></h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -121,7 +105,7 @@ if (!isset($_SESSION['usuario_logado'])) {
                         <div class="logo_section">
                            <a href="/dashboard">
                           
-                             <!-- <img class="img-responsive" src="../../../logo/logo.png" alt="#" />-->
+                             <img class="img-responsive" src="../../../logotipo/spaac1.jpg" alt="#" />
                            </a>
                         </div>
                         <div class="right_topbar">
@@ -130,10 +114,9 @@ if (!isset($_SESSION['usuario_logado'])) {
                                  <li>
                                     <a class="dropdown-toggle" data-toggle="dropdown">
                                        <img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" />
-                                       <span class="name_user">User</span></a>
+                                       <span class="name_user"><?php echo $_SESSION['nome_usuario'] ?></span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.html">Meu Perfil</a>
-                                       <a class="dropdown-item" href="/"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
+                                       <a class="dropdown-item" href="/logout"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>
                               </ul>
@@ -163,7 +146,21 @@ if (!isset($_SESSION['usuario_logado'])) {
                               </div>
                               <div class="counter_no">
                                  <div>
-                                    <p class="total_no">2500</p>
+                                 <p class="total_no">
+                                        <?php
+                                        include "./Connection/conexao.php";
+                                          // Consulta SQL para contar os usuários
+                                          $sql = "SELECT COUNT(id_autor) as id_autor FROM consultaautorusuario";
+                                          $result = $conexao->query($sql);
+                                          if ($result->num_rows > 0) {
+                                             // Exibe o número de usuários cadastrados
+                                             $row = $result->fetch_assoc();
+                                             echo "<h1>".$row["id_autor"]."</h1>";
+                                          } else {
+                                             echo "<h1>0</h1>";
+                                          } 
+                                       ?>
+                                    </p>
                                     <p class="head_couter">Autores</p>
                                  </div>
                               </div>
@@ -178,7 +175,21 @@ if (!isset($_SESSION['usuario_logado'])) {
                               </div>
                               <div class="counter_no">
                                  <div>
-                                    <p class="total_no">123.50</p>
+                                 <p class="total_no">
+                                        <?php
+                                        include "./Connection/conexao.php";
+                                          // Consulta SQL para contar os usuários
+                                          $sql = "SELECT COUNT(id_monografia) as id_monografia FROM vmonografia";
+                                          $result = $conexao->query($sql);
+                                          if ($result->num_rows > 0) {
+                                             // Exibe o número de usuários cadastrados
+                                             $row = $result->fetch_assoc();
+                                             echo "<h1>".$row["id_monografia"]."</h1>";
+                                          } else {
+                                             echo "<h1>0</h1>";
+                                          } 
+                                       ?>
+                                    </p>
                                     <p class="head_couter"> Monografias</p>
                                  </div>
                               </div>
@@ -193,7 +204,20 @@ if (!isset($_SESSION['usuario_logado'])) {
                               </div>
                               <div class="counter_no">
                                  <div>
-                                    <p class="total_no">1,805</p>
+                                 <p class="total_no">
+                                        <?php
+                                        include "./Connection/conexao.php";
+                                          // Consulta SQL para contar os usuários
+                                          $sql = "SELECT COUNT(id_artigo_cientifico) as id_artigo_cientifico FROM vartigo";
+                                          $result = $conexao->query($sql);
+                                          if ($result->num_rows > 0) {
+                                             // Exibe o número de usuários cadastrados
+                                             $row = $result->fetch_assoc();
+                                             echo "<h1>".$row["id_artigo_cientifico"]."</h1>";
+                                          } else {
+                                             echo "<h1>0</h1>";
+                                          } 
+                                       ?>
                                     <p class="head_couter">Artigos Científicos</p>
                                  </div>
                               </div>
@@ -208,7 +232,20 @@ if (!isset($_SESSION['usuario_logado'])) {
                               </div>
                               <div class="counter_no">
                                  <div>
-                                    <p class="total_no">54</p>
+                                 <p class="total_no">
+                                        <?php
+                                        include "./Connection/conexao.php";
+                                          // Consulta SQL para contar os usuários
+                                          $sql = "SELECT COUNT(id_revisor) as id_revisor FROM vrevisor";
+                                          $result = $conexao->query($sql);
+                                          if ($result->num_rows > 0) {
+                                             // Exibe o número de usuários cadastrados
+                                             $row = $result->fetch_assoc();
+                                             echo "<h1>".$row["id_revisor"]."</h1>";
+                                          } else {
+                                             echo "<h1>0</h1>";
+                                          } 
+                                       ?>
                                       <p class="head_couter">Revisores</p>
                                  </div>
                               </div>
@@ -234,28 +271,13 @@ if (!isset($_SESSION['usuario_logado'])) {
                                              <!-- Wrapper for carousel items -->
                                              <div class="carousel-inner">
                                                 <div class="item carousel-item active">
-                                                   <div class="img-box"><img src="images/layout_img/msg2.png" alt=""></div>
-                                                   <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
-                                                   <p class="overview"><b>Paulo Ricardo</b>Engenheiro & Web Design</p>
-                                                </div>
-                                                <div class="item carousel-item">
-                                                   <div class="img-box"><img src="images/layout_img/msg5.png" alt=""></div>
-                                                   <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
-                                                   <p class="overview"><b>Helder Manuel</b>Analista de Dados</p>
-                                                </div>
-                                                <div class="item carousel-item">
-                                                   <div class="img-box"><img src="images/layout_img/user_img.jpg" alt=""></div>
-                                                   <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
-                                                   <p class="overview"><b>José Sopite</b>Especialista em Base de Dados</p>
+                                                   <?php foreach ($monografia->linhas as $item): ?>
+                                                   <p class="testimonial">Titulo : <?=$item->titulo_monografia ?></p>
+                                                   <p class="overview"><b>Autor : <?=$item->nome_usuario ?></b>Categoria : <?=$item->nome_categoria ?></p> 
+                                                   <?php endforeach ?> 
                                                 </div>
                                              </div>
-                                             <!-- Carousel controls -->
-                                             <a class="carousel-control left carousel-control-prev" href="#testimonial_slider" data-slide="prev">
-                                             <i class="fa fa-angle-left"></i>
-                                             </a>
-                                             <a class="carousel-control right carousel-control-next" href="#testimonial_slider" data-slide="next">
-                                             <i class="fa fa-angle-right"></i>
-                                             </a>
+                                            
                                           </div>
                                        </div>
                                     </div>
@@ -281,33 +303,12 @@ if (!isset($_SESSION['usuario_logado'])) {
                                              <!-- Wrapper for carousel items -->
                                              <div class="carousel-inner">
                                                 <div class="item carousel-item active">
-                                                   <div class="img-box"><img src="images/layout_img/msg4.png" alt=""></div>
-                                                   <p class="testimonial">Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
-                                                   <p class="overview"><b>Jorge Leão</b>Chefe de TI & Programador</p>
-                                                </div>
-                                                <div class="item carousel-item">
-                                                   <div class="img-box"><img src="images/layout_img/msg2.png" alt=""></div>
-                                                   <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
-                                                   <p class="overview"><b>Martins Miranda </b>Analista de Sistema</p>
-                                                </div>
-                                                <div class="item carousel-item">
-                                                   <div class="img-box"><img src="images/layout_img/msg3.png" alt=""></div>
-                                                   <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
-                                                   <p class="overview"><b>José Catuto</b>Especialista em Sistema Corporativas</p>
-                                                </div>
-                                                <div class="item carousel-item">
-                                                   <div class="img-box"><img src="images/layout_img/user_img.jpg" alt=""></div>
-                                                   <p class="testimonial">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit cum esse aliquam iste minus repudiandae ipsam harum consequatur magnam.</p>
-                                                   <p class="overview"><b>Yuri Tchilingue</b>Especialista em Design Robustos</p>
+                                                   <?php foreach ($artigo->linhas as $item): ?>
+                                                   <p class="testimonial">Titulo : <?=$item->titulo ?></p>
+                                                   <p class="overview"><b>Autor : <?=$item->nome_usuario ?></b>Categoria : <?=$item->nome_categoria ?></p> 
+                                                   <?php endforeach ?> 
                                                 </div>
                                              </div>
-                                             <!-- Carousel controls -->
-                                             <a class="carousel-control left carousel-control-prev" href="#testimonial_slider" data-slide="prev">
-                                             <i class="fa fa-angle-left"></i>
-                                             </a>
-                                             <a class="carousel-control right carousel-control-next" href="#testimonial_slider" data-slide="next">
-                                             <i class="fa fa-angle-right"></i>
-                                             </a>
                                           </div>
                                        </div>
                                     </div>

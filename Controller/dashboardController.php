@@ -1,11 +1,26 @@
 <?php
+    include "Model/middleware.php";
 class dashboardController {
 
-    public static function dashboard(){
-        include "View\Modules\dashboard\dashboard.php";
+    public static function auth(){
+        Middleware::auth();
+    
     }
-    public static function main(){
-
+    
+    public function __construct()
+    {
+        $this->auth();
+    }
+    public static function dashboard(){
+        include "Model/monografiaModel.php";
+        include "Model/artigoModel.php";
+        $monografia=new monografiaModel();
+        $artigo=new artigoModel();
+        #chamando as fucnoes das 
+        $monografia->listar("");
+        $artigo->listar("");
+        Middleware::auth();
+        include "View\Modules\dashboard\dashboard.php";
     }
 }
 ?>

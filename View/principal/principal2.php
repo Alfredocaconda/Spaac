@@ -51,7 +51,8 @@
                 </ul>
               </li>
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-              <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+              <li class="nav-item"><?php echo $_SESSION['nome_usuario'] ?></li>
+              <li class="nav-item"><a class="nav-link" href="/login">Sair</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-social">
               <li><a href="#"><i class="ti-facebook"></i></a></li>

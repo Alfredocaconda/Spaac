@@ -1,12 +1,22 @@
 <?php
 
 class monografiaController{
+    public static function auth(){
+        Middleware::auth();
+    
+    }
+    
+    public function __construct()
+    {
+        $this->auth();
+    }
 
 public static function index(){
    // isProtected();
     include "Model/monografiaModel.php";
     $model=new monografiaModel();
     $model->listar();
+    Middleware::auth();
     include 'View/Modules/monografia/listarmonografia.php';
 }
 public static function form(){
@@ -14,7 +24,7 @@ public static function form(){
     $model=new monografiaModel();
     if (isset($_GET['id_monografia']))
     $model= $model->listarId((int) $_GET['id_monografia']);
-   // var_dump($model);
+    Middleware::auth();
     include 'View/Modules/monografia/formmonografia.php';
 } 
 public static function save(){
@@ -50,6 +60,7 @@ public static function save(){
     $model->id_categoria=$_POST['id_categoria'];
     $model->id_autor=$_POST['id_autor'];
     $model->save();
+    Middleware::auth();
     header("Location: /monografia");
 }
 public static function delete(){
@@ -57,6 +68,7 @@ public static function delete(){
     
     $model=new monografiaModel();
     $model->delete((int) $_GET['id_monografia']);
+    Middleware::auth();
     header("Location: /monografia");
 
 }

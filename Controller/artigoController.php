@@ -1,12 +1,21 @@
 <?php
 
 class artigoController{
-
+    public static function auth(){
+        Middleware::auth();
+    
+    }
+    
+    public function __construct()
+    {
+        $this->auth();
+    }
 public static function index(){
    // isProtected();
     include "Model/artigoModel.php";
     $model=new artigoModel();
     $model->listar();
+    Middleware::auth();
     include 'View/Modules/artigo/listarartigo.php';
 }
 public static function form(){
@@ -14,7 +23,7 @@ public static function form(){
     $model=new artigoModel();
     if (isset($_GET['id_artigo']))
     $model= $model->listarId((int) $_GET['id_artigo']);
-   // var_dump($model);
+    Middleware::auth();
     include 'View/Modules/artigo/formartigo.php';
 } 
 public static function save(){
@@ -47,6 +56,7 @@ public static function save(){
     $model->id_categoria=$_POST['id_categoria'];
     $model->id_autor=$_POST['id_autor'];
     $model->save();
+    Middleware::auth();
     header("Location: /artigo");
     
     }
@@ -55,6 +65,7 @@ public static function delete(){
     include "Model/artigoModel.php";
     $model=new artigoModel();
     $model->delete((int) $_GET['id_artigo']);
+    Middleware::auth();
     header("Location: /artigo");
 
 }

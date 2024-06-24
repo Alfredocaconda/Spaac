@@ -12,10 +12,10 @@ class LoginController {
         
         $model=new usuarioModel();
         $model->id_usuario =$_POST['id_usuario'];
-        $model->nome=$_POST['nome'];
-        $model->tipo=$_POST['tipo'];
-        $model->email=$_POST['email'];
-        $model->senha=$_POST['senha'];
+        $model->nome_usuario=$_POST['nome'];
+        $model->tipo_usuario=$_POST['tipo'];
+        $model->email_usuario=$_POST['email'];
+        $model->senha_usuario=$_POST['senha'];
         $model->save();
         header("Location: /usuario");
     }
@@ -26,9 +26,6 @@ class LoginController {
         $model->email=$_POST['email'];
         $model->password=$_POST['password'];
         $model->autenticar();
-    }
-    public static function sair(){
-        //parent::isProtected();
     }
 }
 ?>

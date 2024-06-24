@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sensive Blog - Home</title>
+  <title>SPAAC - Home</title>
 	<link rel="icon" href="../../../../img/Fevicon.png" type="../../../../img/png">
 
   <link rel="stylesheet" href="../../vendors/bootstrap/bootstrap.min.css">
@@ -42,19 +42,11 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
-              <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li> 
-              <li class="nav-item"><a class="nav-link" href="category.html">Category</a>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" 
-                data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Arquivos</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="../../lista.php">Artigos Cientificos</a></li>
-                  <li class="nav-item"><a class="nav-link" href="../../lista1.php">Monografias</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item active"><a class="nav-link" href="">Inicio</a></li> 
+              <li class="nav-item"><a class="nav-link" href="">Autores</a></li> 
+              <li class="nav-item"><a class="nav-link" href="../../lista.php">Artigo Cientificos</a></li> 
+              <li class="nav-item"><a class="nav-link" href="../../lista1.php">Monografia</a></li> 
+              <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
               <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-social">
@@ -76,9 +68,9 @@
       <div class="container">
         <div class="hero-banner">
           <div class="hero-banner__content">
-            <h3>Tours & Travels</h3>
-            <h1>Amazing Places on earth</h1>
-            <h4>December 12, 2018</h4>
+            <h3>Artigos Cientificos & Monografia</h3>
+            <h1>SPAAC</h1>
+            <h4>SISTEMA DE PULICAÇÃO E AVALIÇÃO DE ARTIGOS CIENTIFICOS</h4>
           </div>
         </div>
       </div>
