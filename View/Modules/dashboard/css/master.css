@@ -1,0 +1,56 @@
+/*CADASTRO DE AUTOR*/
+
+.contentCadUser{
+    display: flex;
+    
+}
+.contentCadUser .ImgCadUser{
+    width: 70px;
+     
+}
+.contentCadUser .titleRA{
+    font-size: 20pt;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    color: #0c4b6c;
+}
+
+.formulario{
+    width: 100%;
+    /*background-color: #008aff;*/
+}
+.form-group{
+    padding: 5px;
+}
+label{
+    font-size: 12pt;
+    font-weight: 500;
+}
+input{
+    width: 50%;
+    height: 30px;
+    border: none;
+    background-color: #d1d3d486;
+    padding: 10px;
+   
+}
+.btn{
+    background-color: none; 
+    border: none;
+}
+.btn .btnCadastrar{
+    
+    width: 50px;
+    
+   
+}
+/*VISÃO GERAL -> MONOGRAFIA*/
+.dark_bg{
+    background-color: rgb(212, 65, 7);
+}
+
+/*CADASTRO DE USUÁRIO*/
+.content{
+    background-color: RED;
+}
