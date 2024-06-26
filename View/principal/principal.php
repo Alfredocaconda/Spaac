@@ -78,139 +78,33 @@
     <!--================Hero Banner end =================-->  
 
     <!--================ Blog slider start =================--> 
-    <h1> DESTAQUES ARTIGOS CIENTIFICOS</h1>  
+    <h1> DESTAQUES DAS MONOGRAFIAS</h1>  
     <section>
       <div class="container">
         <div class="owl-carousel owl-theme blog-slider">
           <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-              <?php require'lista.php'?>
-            </div>
             <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../ARTIGOS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista.php'?>
-            </div>
-            <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../ARTIGOS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista.php'?>
-            </div>
-            <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../ARTIGOS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista.php'?>
-            </div>
-            <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../ARTIGOS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista.php'?>
-            </div>
-            <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../ARTIGOS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista.php'?>
-            </div>
-            <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../ARTIGOS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
+              <?php foreach ($monografia->linhas as $item): ?>
+                <h3>Titulo : <?=$item->titulo_monografia ?></h3>
+                <p>Autor : <?=$item->nome_usuario ?></p>
+              <?php endforeach ?> 
             </div>
           </div>
         </div>
       </div>
     </section>
     <!--================ Blog slider end =================-->  
-
-
     <!--================ Blog slider start =================--> 
-    <H1>DESTAQUES DAS MONOGRAFIAS</H1> 
+    <h1> DESTAQUES ARTIGOS CIENTIFICOS</h1>  
     <section>
       <div class="container">
         <div class="owl-carousel owl-theme blog-slider">
           <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista1.php'?>
-            </div>
             <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista1.php'?>
-            </div>
-            <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista1.php'?>
-            </div>
-            <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista1.php'?>
-            </div>
-            <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista1.php'?>
-            </div>
-            <div class="blog__slide__content">
-              <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a>
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-            <?php require'lista1.php'?>
-            </div>
-            <div class="blog__slide__content">
-            <a class="blog__slide__label" href="../../MONOGRAFIAS/">LER</a> 
-              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-              <p>2 days ago</p>
+              <?php foreach ($artigo->linhas as $item): ?>
+                <h3>Titulo : <?=$item->titulo ?></h3>
+                <p>Autor : <?=$item->nome_usuario ?></p>
+              <?php endforeach ?> 
             </div>
           </div>
         </div>
