@@ -30,12 +30,6 @@
       <link rel="stylesheet" href="../../css/custom.css" />
       <!-- calendar file css -->
       <link rel="stylesheet" href="../../js/semantic.min.css" />
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.../../js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-         <!--Link para Reajuste-->
-         <link rel="stylesheet" href="../../../css/StyleGeral.css">
    </head>
    <body class="inner_page login">
       <div class="full_container">
@@ -44,20 +38,22 @@
                <div class="login_section">
                   <div class="logo_login">
                      <div class="center">
-                        
                      <img width="210" src="../../logotipo/spaac1.jpg" alt="#" />
                      </div>
                   </div>
                   <div class="login_form">
-                     <form action="/cadastrarUsuario" method="post">
+                     <form action="/cadastrarUsuario/save" method="post">
                         <fieldset>
                            <div class="field">
                               <label class="label_field">Nome</label>
                               <input type="text" name="nome" placeholder="Nome" />
                            </div>
                            <div class="field">
-                              <label class="label_field">Tipo</label>
-                              <input type="text" name="tipo" placeholder="tipo" />
+                              <select name="tipo" id="">
+                                 <option >Selecionar o Tipo</option>
+                                 <option >Estudante</option>
+                                 <option >Professor</option>
+                              </select>
                            </div>
                            <div class="field">
                               <label class="label_field">Email</label>

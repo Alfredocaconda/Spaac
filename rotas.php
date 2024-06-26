@@ -22,6 +22,7 @@ include "Controller/principalController.php";
 #Controller Dashboard
 include "Controller/dashboardController.php";
 #direcionando a url para as paginas
+include 'Controller/arquivosController.php';
  try {
     //code...
     switch ($url) {
@@ -34,6 +35,11 @@ include "Controller/dashboardController.php";
             # rota da pagina inicial...
             principalController::principal2();
             break;
+        case '/arquivos':
+            # rota da pagina inicial...
+            include "View/arquivos/lista.php";
+            break;
+        
 
         case '/':
                 # rota da para o Início do Dashboard...
@@ -60,11 +66,11 @@ include "Controller/dashboardController.php";
 
         case '/cadastrarUsuario':
             # rota para autenticar...
-            LoginController::save();
+            usuarioController::form();
             break;
-        case '/cadastrarUsuario/form':
+        case '/cadastrarUsuario/save':
             # rota para autenticar...
-            LoginController::login();
+            usuarioController::save();
             break;
         case '/autenticacao':
             # rota para autenticar...

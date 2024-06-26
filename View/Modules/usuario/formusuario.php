@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['usuario_logado'])) {
-    # code...
-   // header("Location: /");
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -36,14 +28,6 @@ if (!isset($_SESSION['usuario_logado'])) {
       <link rel="stylesheet" href="../../../css/perfect-scrollbar.css" />
       <!-- custom css -->
       <link rel="stylesheet" href="../../../css/custom.css" />
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-     
-        <!--Link para Reajuste-->
-        <link rel="stylesheet" href="../../../css/StyleGeral.css">
-
    </head>
    <body class="dashboard dashboard_1">
       <div class="full_container">

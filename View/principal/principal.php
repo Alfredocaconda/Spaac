@@ -87,6 +87,7 @@
               <?php foreach ($monografia->linhas as $item): ?>
                 <h3>Titulo : <?=$item->titulo_monografia ?></h3>
                 <p>Autor : <?=$item->nome_usuario ?></p>
+                <p><a href="/arquivos?id=<?php echo $item->id_monografia; ?>"target="_blank">Visualizar</a></p>
               <?php endforeach ?> 
             </div>
           </div>

@@ -27,7 +27,6 @@ class LoginDAO {
         $_SESSION['email_usuario']=$dados->email_usuario; 
         $_SESSION['senha_usuario']=$dados->senha_usuario; 
         
-
                 if ($_SESSION['tipo_usuario']=="Estudante" || $_SESSION['tipo_usuario']=="Professor" ) {
                     # code...
                     header("Location: /principal2");

@@ -11,13 +11,13 @@ class artigoController{
         $this->auth();
     }
 public static function index(){
-   // isProtected();
     include "Model/artigoModel.php";
     $model=new artigoModel();
     $model->listar();
     Middleware::auth();
     include 'View/Modules/artigo/listarartigo.php';
 }
+
 public static function form(){
     include "Model/artigoModel.php";
     $model=new artigoModel();
@@ -67,7 +67,6 @@ public static function delete(){
     $model->delete((int) $_GET['id_artigo']);
     Middleware::auth();
     header("Location: /artigo");
-
 }
 }
 ?>

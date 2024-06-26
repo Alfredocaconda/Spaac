@@ -58,7 +58,7 @@
                            <div class="field margin_0">
                               <label class="label_field hidden">hidden label</label>
                               <button class="main_bt">Entrar</button>
-                              <a href="/cadastrarUsuario/form" class="btn btn-success">Cadastrar</a>
+                              <a href="/cadastrarUsuario" class="btn btn-success">Cadastrar</a>
                            </div>
                         </fieldset>
                      </form>

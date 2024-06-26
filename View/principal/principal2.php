@@ -83,7 +83,7 @@
     <!--================Hero Banner end =================-->  
 
      <!--================ Blog slider start =================--> 
-     <h1> DESTAQUES DAS MONOGRAFIAS</h1>  
+     <h1 style="text-align: center;"> DESTAQUES DAS MONOGRAFIAS</h1>  
     <section>
       <div class="container">
         <div class="owl-carousel owl-theme blog-slider">
@@ -92,6 +92,7 @@
               <?php foreach ($monografia->linhas as $item): ?>
                 <h3>Titulo : <?=$item->titulo_monografia ?></h3>
                 <p>Autor : <?=$item->nome_usuario ?></p>
+                <p><a href="/arquivos?id=<?php echo $item->id_monografia; ?>"target="_blank">Visualizar</a></p>
               <?php endforeach ?> 
             </div>
           </div>
@@ -100,7 +101,7 @@
     </section>
     <!--================ Blog slider end =================-->  
     <!--================ Blog slider start =================--> 
-    <h1> DESTAQUES ARTIGOS CIENTIFICOS</h1>  
+    <h1 style="text-align: center;" > DESTAQUES ARTIGOS CIENTIFICOS</h1>  
     <section>
       <div class="container">
         <div class="owl-carousel owl-theme blog-slider">
@@ -109,6 +110,7 @@
               <?php foreach ($artigo->linhas as $item): ?>
                 <h3>Titulo : <?=$item->titulo ?></h3>
                 <p>Autor : <?=$item->nome_usuario ?></p>
+                <p><a href="/arquivos?id=<?php echo $item->id_artigo_cientifico; ?>"target="_blank">Visualizar</a></p>
               <?php endforeach ?> 
             </div>
           </div>
