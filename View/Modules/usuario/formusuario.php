@@ -56,7 +56,6 @@
                          <img src="../images/img/cadastro.png" width="30"><span>Cadastro</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
                             
-                            <li><a href="usuario/form"> <img src="../images/img/cadUser2.png" width="30"><span>Usuário</span></a></li>
                            <li><a href="autor/form"><img src="../images/img/user.png" width="30"> <span>Autores</span></a></li>
                            <li><a href="monografia/form"><img src="../images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
                            <li><a href="artiogo/form"><img src="../images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>

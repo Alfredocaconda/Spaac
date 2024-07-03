@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['usuario_logado'])) {
-    # code...
-   // header("Location: /");
-}
+
 try {
   
    include "Dao/usuarioDao.php";
@@ -45,12 +41,7 @@ try {
       <link rel="stylesheet" href="../../../css/perfect-scrollbar.css" />
       <!-- custom css -->
       <link rel="stylesheet" href="../../../css/custom.css" />
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-             <!--Link para Reajuste-->
-             <link rel="stylesheet" href="../../../css/StyleGeral.css">
+     
    </head>
    <body class="dashboard dashboard_1">
       <div class="full_container">
@@ -79,7 +70,6 @@ try {
                          <img src="../images/img/cadastro.png" width="30"><span>Cadastro</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
                             
-                            <li><a href="usuario/form"> <img src="../images/img/cadUser2.png" width="30"><span>Usuário</span></a></li>
                            <li><a href="autor/form"><img src="../images/img/user.png" width="30"> <span>Autores</span></a></li>
                            <li><a href="monografia/form"><img src="../images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
                            <li><a href="artiogo/form"><img src="../images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>

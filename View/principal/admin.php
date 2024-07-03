@@ -20,6 +20,7 @@
       width: 150px;
     height: 70px;
     }
+   
   </style>
 </head>
 <body>
@@ -39,20 +40,14 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item active"><a class="nav-link" href="">Inicio</a></li> 
+            <li class="nav-item active"><a class="nav-link" href="">Inicio</a></li> 
               <li class="nav-item"><a class="nav-link" href="">Autores</a></li> 
               <li class="nav-item"><a class="nav-link" href="../../lista.php">Artigo</a></li> 
               <li class="nav-item"><a class="nav-link" href="../../lista1.php">Monografia</a></li> 
+              <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
               <li class="nav-item"><?php echo $_SESSION['nome_usuario'] ?></li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Submeter</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="monografia/form">Monografia</a></li>
-                  <li class="nav-item"><a class="nav-link" href="artigo/form">Artigo</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="/logout">Sair</a></li>
+              <li class="nav-item"><a class="nav-link" href="/">Voltar</a></li>
+             
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-social">
               <li><a href="#"><i class="ti-facebook"></i></a></li>
@@ -66,16 +61,7 @@
     </div>
   </header>
   <!--================Header Menu Area =================-->
-  <div style="text-align:center" class="col-md-6">
-  <form  action="/artigo/form/save" method="Post" enctype="multipart/form-data" class="row g-3">
-            <div class="col-md-6">
-        <label for="capa" class="form-label">PESQUISAR </label>
-        <input type="text" class="form-control" id="inputAddress" name="capa"
-        placeholder="PESQUISAR" required>
-        <button>Pesquisar</button>
-        </div>
-        </form>
-        </div>
+  
   <main class="site-main">
     <!--================Hero Banner start =================--> 
     <section class="mb-30px">
@@ -85,7 +71,6 @@
             <h3>Artigos Cientificos & Monografia</h3>
             <h1>SPAAC</h1>
             <h4>SISTEMA DE PULICAÇÃO E AVALIÇÃO DE ARTIGOS CIENTIFICOS</h4>
-            
           </div>
         </div>
       </div>

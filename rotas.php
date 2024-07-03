@@ -50,6 +50,10 @@ include 'Controller/arquivosController.php';
             # rota da pagina inicial...
             LoginController::index();
             break;
+         case '/admin':
+            # rota da pagina inicial...
+            dashboardController::admin();
+            break;
             
             case '/logout':
                 # rota da pagina inicial...

@@ -68,7 +68,6 @@
                          <img src="images/img/cadastro.png" width="30"><span>Cadastro</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
                             
-                            <li><a href="usuario/form"> <img src="images/img/cadUser2.png" width="30"><span>Usuário</span></a></li>
                            <li><a href="autor/form"><img src="images/img/user.png" width="30"> <span>Autores</span></a></li>
                            <li><a href="monografia/form"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
                            <li><a href="artigo/form"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
@@ -86,7 +85,7 @@
                            <li><a href="../../../lista.php"> <img src="images/img/artigo.png" width="30"><span>Artigos Científicos</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="/"><!--<i class="fa fa-cog yellow_color"></i>--> <img src="images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
+                     <li><a href="/admin"><!--<i class="fa fa-cog yellow_color"></i>--> <img src="images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
                      
                      </li>
                      </li>
@@ -95,7 +94,7 @@
                </div>
             </nav>
             <!-- end sidebar -->
-            <!-- right content -->
+               <!-- right content -->
             <div id="content">
                <!-- topbar -->
                <div class="topbar">
