@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sensive Blog - Home</title>
+  <title>SPAAC - Home</title>
 	<link rel="icon" href="../../../../img/Fevicon.png" type="../../../../img/png">
 
   <link rel="stylesheet" href="../../vendors/bootstrap/bootstrap.min.css">
@@ -19,6 +19,9 @@
     .image{
       width: 150px;
     height: 70px;
+    }
+    h1{
+      text-align:center;
     }
   </style>
 </head>
@@ -40,25 +43,22 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
               <li class="nav-item active"><a class="nav-link" href="">Inicio</a></li> 
-              <li class="nav-item"><a class="nav-link" href="">Autores</a></li> 
-              <li class="nav-item"><a class="nav-link" href="../../lista.php">Artigo</a></li> 
+              <li class="nav-item"><a class="nav-link" href="../../lista.php">Artigo Cientificos</a></li> 
               <li class="nav-item"><a class="nav-link" href="../../lista1.php">Monografia</a></li> 
-              <li class="nav-item"><?php echo $_SESSION['nome_usuario'] ?></li>
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Submeter</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="monografia/form">Monografia</a></li>
-                  <li class="nav-item"><a class="nav-link" href="artigo/form">Artigo</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/monografia/form">Monografia</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/artigo/form">Artigo</a></li>
                 </ul>
               </li>
+              <li class="nav-item"><a class="nav-link" href=""><?= $_SESSION['nome_usuario']?></a></li>
               <li class="nav-item"><a class="nav-link" href="/logout">Sair</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-social">
-              <li><a href="#"><i class="ti-facebook"></i></a></li>
-              <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-              <li><a href="#"><i class="ti-instagram"></i></a></li>
-              <li><a href="#"><i class="ti-skype"></i></a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=100063929982758" target="_blank"><i class="ti-facebook"></i></a></li>
+              <li><a href="https://ispm.direccao@hotmail.com" target="_blank"><i class="ti-email"></i></a></li>
             </ul>
           </div> 
         </div>
@@ -66,26 +66,25 @@
     </div>
   </header>
   <!--================Header Menu Area =================-->
-  <div style="text-align:center" class="col-md-6">
-  <form  action="/artigo/form/save" method="Post" enctype="multipart/form-data" class="row g-3">
-            <div class="col-md-6">
-        <label for="capa" class="form-label">PESQUISAR </label>
-        <input type="text" class="form-control" id="inputAddress" name="capa"
-        placeholder="PESQUISAR" required>
-        <button>Pesquisar</button>
-        </div>
-        </form>
-        </div>
+        
   <main class="site-main">
     <!--================Hero Banner start =================--> 
     <section class="mb-30px">
       <div class="container">
         <div class="hero-banner">
+          <div style="text-align:center; margin-left:-14px; " class="col-md-6">
+            <form style="width:200%"  action="/principal2" method="Post" enctype="multipart/form-data" class="row g-3">
+              <div class="col-md-6">
+                <input style="text-align:center;" type="text" class="form-control" id="inputAddress" name="nome"
+                placeholder="PESQUISAR">
+                <button style="margin-left:100%;margin-top:-66px;" class="btn btn-primary">Pesquisar</button>
+              </div>
+            </form>
+          </div>
           <div class="hero-banner__content">
             <h3>Artigos Cientificos & Monografia</h3>
             <h1>SPAAC</h1>
             <h4>SISTEMA DE PULICAÇÃO E AVALIÇÃO DE ARTIGOS CIENTIFICOS</h4>
-            
           </div>
         </div>
       </div>
@@ -93,14 +92,14 @@
     <!--================Hero Banner end =================-->  
 
     <!--================ Blog slider start =================--> 
-    <h1 style="text-align: center;"> DESTAQUES DAS MONOGRAFIAS</h1>  
+    <h1> DESTAQUES DAS MONOGRAFIAS</h1>  
     <section>
       <div class="container">
         <div class="owl-carousel owl-theme blog-slider">
           <div class="card blog__slide text-center">
             <div class="blog__slide__content">
               <?php foreach ($monografia->linhas as $item): ?>
-                <h3>Titulo : <?=$item->titulo_monografia ?></h3>
+                <h3>Titulo :<?=$item->titulo_monografia ?></h3>
                 <p>Autor : <?=$item->nome_usuario ?></p>
                 <p><a href="/arquivos?id=<?php echo $item->id_monografia; ?>"target="_blank">Visualizar</a></p>
               <?php endforeach ?> 
@@ -111,7 +110,7 @@
     </section>
     <!--================ Blog slider end =================-->  
     <!--================ Blog slider start =================--> 
-    <h1 style="text-align: center;"> DESTAQUES ARTIGOS CIENTIFICOS</h1>  
+    <h1> DESTAQUES ARTIGOS CIENTIFICOS</h1>  
     <section>
       <div class="container">
         <div class="owl-carousel owl-theme blog-slider">
@@ -142,67 +141,16 @@
             </p>
           </div>
         </div>
-        <div class="col-lg-4  col-md-6 col-sm-6">
-          <div class="single-footer-widget">
-            <h6>Newsletter</h6>
-            <p>Stay update with our latest</p>
-            <div class="" id="mc_embed_signup">
-
-              <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                method="get" class="form-inline">
-
-                <div class="d-flex flex-row">
-
-                  <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
-                    required="" type="email">
-
-
-                  <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-                  <div style="position: absolute; left: -5000px;">
-                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                  </div>
-
-                  <!-- <div class="col-lg-4 col-md-4">
-                        <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                      </div>  -->
-                </div>
-                <div class="info"></div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3  col-md-6 col-sm-6">
-          <div class="single-footer-widget mail-chimp">
-            <h6 class="mb-20">Instragram Feed</h6>
-            <ul class="instafeed d-flex flex-wrap">
-              <li><img src="../../img/instagram/i1.jpg" alt=""></li>
-              <li><img src="../../img/instagram/i2.jpg" alt=""></li>
-              <li><img src="../../img/instagram/i3.jpg" alt=""></li>
-              <li><img src="../../img/instagram/i4.jpg" alt=""></li>
-              <li><img src="../../img/instagram/i5.jpg" alt=""></li>
-              <li><img src="../../img/instagram/i6.jpg" alt=""></li>
-              <li><img src="../../img/instagram/i7.jpg" alt=""></li>
-              <li><img src="../../img/instagram/i8.jpg" alt=""></li>
-            </ul>
-          </div>
-        </div>
+       
         <div class="col-lg-2 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h6>Follow Us</h6>
             <p>Let us be social</p>
             <div class="footer-social d-flex align-items-center">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-dribbble"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-behance"></i>
-              </a>
+            <a href="https://www.facebook.com/profile.php?id=100063929982758" target="_blank"><i class="ti-facebook"></i></a>
+            <a href="https://ispm.direccao@hotmail.com" target="_blank"><i class="ti-email"></i></a>
+            
+              
             </div>
           </div>
         </div>

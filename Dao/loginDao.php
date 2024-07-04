@@ -23,7 +23,7 @@ class LoginDAO {
         $dados=$valor->fetchObject();
         $_SESSION['tipo_usuario']=$dados->tipo_usuario; 
         $_SESSION['nome_usuario']=$dados->nome_usuario; 
-        $_SESSION['id_usuario ']=$dados->id_usuario ; 
+        $_SESSION['id_usuario']=$dados->id_usuario ; 
         $_SESSION['email_usuario']=$dados->email_usuario; 
         $_SESSION['senha_usuario']=$dados->senha_usuario; 
         

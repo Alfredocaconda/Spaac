@@ -40,7 +40,7 @@
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>User</h6>
+                           <h6><?=$_SESSION['nome_usuario']?></h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -56,31 +56,16 @@
                          class="dropdown-toggle">
                          <img src="../images/img/cadastro.png" width="30"><span>Cadastro</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
-                            
-                           <li><a href="autor/form"><img src="../images/img/user.png" width="30"> <span>Autores</span></a></li>
                            <li><a href="monografia/form"><img src="../images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
-                           <li><a href="artiogo/form"><img src="../images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
-                           <li><a href="categoria/form"><img src="../images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
-                           <li><a href="Revisao/form"><img src="../images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
-                           <li><a href="Revisor/form"> <img src="../images/img/revisor.png" width="30"><span>Revisor</span></a></li>
-                           
                         </ul>
                      </li>
-
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Lista de Arquivos</span></a>
                         <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="usuario"><img src="../images/img/cadUser2.png" width="30"> <span>Usuário</span></a></li>
-                           <li><a href="autor"><img src="../images/img/user.png" width="30"> <span> <span>Autores</span></a></li>
                            <li><a href="monografia"> <img src="../images/img/monografia.png" width="30"><span>Monografias</span></a></li>
-                           <li><a href="artigo"> <img src="../images/img/artigo.png" width="30"><span>Artigos Científicos</span></a></li>
-                           <li><a href="categoria"> <img src="../images/img/categoria.png" width="30"><span>Categória</span></a></li>
-                           <li><a href="Revisao"><img src="../images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
-                           <li><a href="Revisor"><img src=".../images/img/revisor.png" width="30"> <span>Revisor</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="../index.php"><!--<i class="fa fa-cog yellow_color"></i>--> <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
-                     
+                     <li><a href="../index.php"> <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
                      </li>
                      </li>
                      
@@ -105,11 +90,10 @@
                               <ul class="user_profile_dd">
                                  <li>
                                     <a class="dropdown-toggle" data-toggle="dropdown">
-                                       <img class="img-responsive rounded-circle" src="../../../layout_img/user_img.jpg" alt="#" />
-                                       <span class="name_user">User</span></a>
+                                       <span class="name_user"><?=$_SESSION['nome_usuario']?></span></a>
                                     <div class="dropdown-menu">
                                        <a class="dropdown-item" href="profile.html">Meu Perfil</a>
-                                       <a class="dropdown-item" href="/"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
+                                       <a class="dropdown-item" href="/principal2"><span>Voltar</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>
                               </ul>
@@ -138,9 +122,6 @@
             <th scope="col">FICHEIRO</th>
             <th scope="col">IMAGEM DA CAPA</th>
             <th scope="col">DATA SUBMISSÃO</th>
-            <th scope="col">DATA DE AVALIAÇÃO</th>
-            <th scope="col">DATA DA PUBLICAÇÃO</th>
-            <th scope="col">AUTOR</th>
             <th scope="col">CATEGORIA</th>
             <th scope="col">OPÇÕES</th>
         </tr>
@@ -153,9 +134,6 @@
             <td scope="col"><?=$item->ficheiro?></td>
             <td scope="col"><?=$item->capa?></td>
             <td scope="col"><?=$item->data_submissao?></td>
-            <td scope="col"><?=$item->data_avaliacao?></td>
-            <td scope="col"><?=$item->data_publicacao?></td>
-            <td scope="col"><?=$item->nome_usuario?></td>
             <td scope="col"><?=$item->nome_categoria?></td>
             <td width=10px;> <a href="/monografia/delete?id_monografia=<?=$item->id_monografia?>"
             class="btn btn-danger"><img src="../images/img/excluir.png" width="20"></a></td>

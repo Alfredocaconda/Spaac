@@ -9,25 +9,24 @@ class monografiaDao{
     }
     public function insert(monografiaModel $model){
         $sql="INSERT INTO monografia (titulo_monografia,instituicao_ensino,resumo_monografia,
-        palavra_chave,ficheiro,data_submissao,data_avaliacao,data_publicacao,capa,id_autor,id_categoria) 
-        values (?,?,?,?,?,?,?,?,?,?,?)";
+        palavra_chave,ficheiro,data_submissao,capa,id_usuario,id_categoria) 
+        values (?,?,?,?,?,?,?,?,?)";
         $valor=$this->conexao->prepare($sql);
+        $data_actual=date("Y-m-d");
         $valor->bindValue(1,$model->titulo_monografia);
         $valor->bindValue(2,$model->instituicao_ensino);
         $valor->bindValue(3,$model->resumo_monografia);
         $valor->bindValue(4,$model->palavra_chave);
         $valor->bindValue(5,$model->ficheiro);
-        $valor->bindValue(6,$model->capa);
-        $valor->bindValue(7,$model->data_submissao);
-        $valor->bindValue(8,$model->data_avaliacao);
-        $valor->bindValue(9,$model->data_publicacao);
-        $valor->bindValue(10,$model->id_autor);
-        $valor->bindValue(11,$model->id_categoria);
+        $valor->bindValue(6,$data_actual);
+        $valor->bindValue(7,$model->capa);
+        $valor->bindValue(8,$model->id_usuario);
+        $valor->bindValue(9,$model->id_categoria);
         $valor->execute();
     }
     public function update(monografiaModel $model){
         $sql="UPDATE monografia SET titulo_monografia=?,instituicao_ensino=?,resumo_monografia=?,palavra_chave=?
-         ,ficheiro=?,data_submissao=?,data_avaliacao=?,data_publicacao=?,capa=?,id_autor=?,id_categoria=?
+         ,ficheiro=?,data_submissao=?,capa=?,id_usuario=?,id_categoria=?
         WHERE id_monografia=?";
         $valor=$this->conexao->prepare($sql);
         $valor->bindValue(1,$model->titulo_monografia);
@@ -36,23 +35,32 @@ class monografiaDao{
         $valor->bindValue(4,$model->palavra_chave);
         $valor->bindValue(5,$model->ficheiro);
         $valor->bindValue(6,$model->capa);
-        $valor->bindValue(7,$model->data_submissao);
-        $valor->bindValue(8,$model->data_avaliacao);
-        $valor->bindValue(9,$model->data_publicacao);
-        $valor->bindValue(10,$model->id_autor);
-        $valor->bindValue(11,$model->id_categoria);
-        $valor->bindValue(12,$model->id_monografia);
+        $data_actual=date("Y-m-d");
+        $valor->bindValue(7,$data_actual);
+        $valor->bindValue(8,$model->id_usuario);
+        $valor->bindValue(9,$model->id_categoria);
+        $valor->bindValue(10,$model->id_monografia);
         $valor->execute();
     }
-    public function select(){
-        $sql="SELECT * FROM vmonografia";
-        $valor=$this->conexao->prepare($sql);
+    public function select($nome){
+        $valor=null;
+        if($nome == ""){
+            $sql="SELECT * FROM vmonografia";
+            $valor=$this->conexao->prepare($sql);
+        }else{
+            $sql="SELECT * FROM vmonografia where nome_usuario like ? or titulo_monografia like ? or palavra_chave like ?";
+            $valor=$this->conexao->prepare($sql);
+            $pesquisar = "%$nome%"; 
+            $valor->bindValue(1,$pesquisar);
+            $valor->bindValue(2,$pesquisar);
+            $valor->bindValue(3,$pesquisar);
+        }
         $valor->execute();
         return $valor->fetchAll(PDO::FETCH_CLASS);
     }
     public function selectId(int $id_monografia ){
         include_once "Model/monografiaModel.php";
-       $sql="SELECT * FROM vmonografias where id_monografia=?";
+       $sql="SELECT * FROM vmonografia where id_monografia=?";
         $valor=$this->conexao->prepare($sql);
         $valor->bindValue(1, $id_monografia );
         $valor->execute();

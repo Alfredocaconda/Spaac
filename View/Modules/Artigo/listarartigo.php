@@ -136,34 +136,26 @@
             <th scope="col">RESUMO</th>
             <th scope="col">VOLUME</th>
             <th scope="col">DATA DE SUBMISSÃO</th>
-            <th scope="col">DATA DE AVALIAÇÃO</th>
             <th scope="col">PALAVRA CHAVE</th>
-            <th scope="col">DATA DA PUBLICAÇÃO</th>
             <th scope="col">FICHEIRO</th>
-            <th scope="col">IMAGEM DA CAPA</th>
-            <th scope="col">NOME</th>
             <th scope="col">CATEGORIA</th>
             <th scope="col">OPÇÕES</th>
         </tr>
         <?php foreach ($model->linhas as $item): ?>
-        <tr>
-           <td scope="col"><?=$item->id_artigo_cientifico?></td>
-           <td scope="col"><?=$item->titulo?></td>
-           <td scope="col"><?=$item->resumo?></td>
-           <td scope="col"><?=$item->volume?></td>
-           <td scope="col"><?=$item->data_submissao?></td>
-           <td scope="col"><?=$item->data_avaliacao?></td>
-           <td scope="col"><?=$item->palavra_chave?></td>
-           <td scope="col"><?=$item->data_publicacao?></td>
-           <td scope="col"><?=$item->ficheiro?></td>
-           <td scope="col"><?=$item->capa?></td>
-           <td scope="col"><?=$item->nome_usuario?></td>
-           <td scope="col"><?=$item->nome_categoria?></td>
-            <td width=10px;> <a href="/artigo/delete?id_artigo=<?=$item->id_artigo?>"
-            class="btn btn-danger">APAGAR</a></td>
-            <td width=10px;> <a href="/artigo/form?id_artigo=<?=$item->id_artigo?>"
-            class="btn btn-success">EDITAR</a></td>
-        </tr>
+         <tr>
+            <td scope="col"><?=$item->id_artigo_cientifico?></td>
+            <td scope="col"><?=$item->titulo?></td>
+            <td scope="col"><?=$item->resumo?></td>
+            <td scope="col"><?=$item->volume?></td>
+            <td scope="col"><?=$item->data_submissao?></td>
+            <td scope="col"><?=$item->palavra_chave?></td>
+            <td scope="col"><?=$item->capa?></td>
+            <td scope="col"><?=$item->nome_categoria?></td>
+               <td width=10px;> <a href="/artigo/delete?id_artigo=<?=$item->id_artigo?>"
+               class="btn btn-danger">APAGAR</a></td>
+               <td width=10px;> <a href="/artigo/form?id_artigo=<?=$item->id_artigo?>"
+               class="btn btn-success">EDITAR</a></td>
+         </tr>
         <?php endforeach ?> 
     </table>
     </div>

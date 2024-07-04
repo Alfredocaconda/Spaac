@@ -2,8 +2,8 @@
 
 class artigoModel{
     public $id_artigo,$titulo,$resumo,$caminho_destino,
-    $volume,$data_submissao,$data_avaliacao,$palavra_chave,$ficheiro,$id_autor,
-    $id_categoria,$data_publicacao,$capa;
+    $volume,$data_submissao,$palavra_chave,$ficheiro,$id_usuario,
+    $id_categoria,$capa;
     public $linhas;
     
     public function save(){
@@ -19,10 +19,10 @@ class artigoModel{
         
         
     }
-    public function listar(){
+    public function listar($nome){
         include 'Dao/artigoDao.php';
         $dados=new artigoDao();
-       $this->linhas= $dados->select();
+       $this->linhas= $dados->select($nome);
 
     }
     public function listarId(int $id_artigo){

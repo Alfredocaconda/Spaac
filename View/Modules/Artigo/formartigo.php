@@ -53,7 +53,7 @@ try {
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>User</h6>
+                           <h6><?= $_SESSION['nome_usuario']?></h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -62,21 +62,18 @@ try {
                <div class="sidebar_blog_2">
                   <h4>Menu</h4>
                   <ul class="list-unstyled components">
-                  <li><a href="/dashboard"> <img src="../images/img/home2.png" width="30"> <span>Home</span></a></li>
+                  <li><a href="/artigo/form"> <img src="../images/img/home2.png" width="30"> <span>Home</span></a></li>
 
                      <li class="active">
                         <a href="#dashboard" data-toggle="collapse" aria-expanded="false"
                          class="dropdown-toggle">
                          <img src="../images/img/cadastro.png" width="30"><span>Cadastro</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
-                            
-                           <li><a href="artiogo/form"><img src="../images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
-                           
+                           <li><a href="artigo/form"><img src="../images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
                         </ul>
                      </li>
-
-                     <li><a href="../index.php"><!--<i class="fa fa-cog yellow_color"></i>--> <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
-                     
+                     <li><a href="../index.php">
+                        <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
                      </li>
                      </li>
                      
@@ -92,7 +89,7 @@ try {
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
-                           <a href="/dashboard">
+                           <a href="/artigo/form">
                         
                               <img class="img-responsive" src="../../../images/logo/SPAACbranco.png" alt="#" />
                            </a>
@@ -102,10 +99,9 @@ try {
                               <ul class="user_profile_dd">
                                  <li>
                                     <a class="dropdown-toggle" data-toggle="dropdown">
-                                       <img class="img-responsive rounded-circle" src="../../../layout_img/user_img.jpg" alt="#" />
-                                       <span class="name_user">User</span></a>
+                                       <span class="name_user"><?= $_SESSION['nome_usuario']?></span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="/principal2"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
+                                       <a class="dropdown-item" href="/principal2"><span>Voltar</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>
                               </ul>
@@ -130,8 +126,8 @@ try {
                            </div>
                         </div>
                      </div>
-            
        <form action="/artigo/form/save" method="Post" enctype="multipart/form-data" class="row g-3">
+        <input type="hidden" name="id_usuario"  value="<?= $_SESSION['id_usuario'] ?>" >
         <input type="hidden" name="id_artigo"  value="<?= $model->id_artigo ?>" >
         <div class="col-md-6">
         <label for="inputEmail4" class="form-label">TITULO</label>
@@ -148,7 +144,7 @@ try {
         </div>
         <div class="col-md-6">
         <label for="volume" class="form-label">VOLUME</label>
-        <input type="text" class="form-control" id="inputAddress"
+        <input type="number" class="form-control" id="inputAddress"
          value="<?= $model->volume ?>" name="volume"
         placeholder="DIGITE AQUI O VOLUME" required>
         </div>
@@ -162,32 +158,33 @@ try {
         
         <div class="col-md-6">
         <label for="ficheiro" class="form-label">FICHEIRO</label>
-        <input type="file" class="form-control" id="inputAddress"
+        <input type="file" accept=".pdf" class="form-control" id="inputAddress"
          value="<?= $model->ficheiro ?>" name="ficheiro"
         placeholder="CARREGA O FICHEIRO" required>
         </div>
         <div class="col-md-6">
         <label for="capa" class="form-label">IMAGEM DA CAPA</label>
-        <input type="file" class="form-control" id="inputAddress"
+        <input type="file" accept="image/*" class="form-control" id="inputAddress"
          value="<?= $model->capa ?>" name="capa"
         placeholder="CARREGA A IMAGEM DA CAPA" required>
         </div>
       </br>
-        <br>
-        <div class="col-md-6">
-         <select name="id_autor" id="id_autor">
+      <br>
+      <div class="col-md-6">
+         <br>
+         <select name="id_categoria" id="id_categoria">
             <option>SELECIONAR O CATEGORIA</option>
             <?php for($i=0;$i<$total_categoria;$i++):?>
-            <option value="<?= $listar_categoria[$i]->id_categoria ?>"
-            ><?= $listar_categoria[$i]->nome_categoria ?></option>
-            <?php endfor ?>
-         </select>
-        </div>
-        <br>
-        <div class="col-12">
-        <button type="submit" class="btn btn-primary"><img src="../images/img/verificar.png" width="30">Guardar</button>
+               <option value="<?= $listar_categoria[$i]->id_categoria ?>"
+               ><?= $listar_categoria[$i]->nome_categoria ?></option>
+               <?php endfor ?>
+            </select>
+         </div>
+         <br>
+         <div class="col-12">
+            <br>
+        <button type="submit" class="btn btn-primary"><img src="../images/img/verificar.png" width="30">Submeter</button>
         <button type="reset" class="btn btn-primary" id="btnClean"><img src="../images/img/delete.png" width="30">Limpar</button>
-        <a href="/artigo" class="btn btn-primary" id="btnVerRegisto"><img src="../images/img/ver.png" width="30">Ver os registos</a>
         </div>
     </form>
     </div>

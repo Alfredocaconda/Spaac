@@ -13,7 +13,7 @@ class artigoController{
 public static function index(){
     include "Model/artigoModel.php";
     $model=new artigoModel();
-    $model->listar();
+    $model->listar("");
     Middleware::auth();
     include 'View/Modules/artigo/listarartigo.php';
 }
@@ -35,9 +35,9 @@ public static function save(){
     $model->resumo=$_POST['resumo'];
     $model->volume=$_POST['volume'];
     $model->data_submissao=$_POST['data_submissao'];
-    $model->data_avaliacao=$_POST['data_avaliacao'];
     $model->palavra_chave=$_POST['palavra_chave'];
-    $model->data_publicacao=$_POST['data_publicacao'];
+    $model->id_categoria=$_POST['id_categoria'];
+    $model->id_usuario=$_POST['id_usuario'];
     if((isset($_FILES['ficheiro']) && $_FILES['ficheiro']['error'] == 0)) {
     $ficheiro =$_FILES['ficheiro']['name'];
     $model->ficheiro=$_FILES['ficheiro']['tmp_name'];
@@ -52,9 +52,6 @@ public static function save(){
 } else{
     $ficheiro = null; // Se nenhum arquivo foi enviado
 }
-  
-    $model->id_categoria=$_POST['id_categoria'];
-    $model->id_autor=$_POST['id_autor'];
     $model->save();
     Middleware::auth();
     header("Location: /artigo");

@@ -85,7 +85,8 @@
                            <li><a href="../../../lista.php"> <img src="images/img/artigo.png" width="30"><span>Artigos Científicos</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="/admin"><!--<i class="fa fa-cog yellow_color"></i>--> <img src="images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
+                     <li><a href="/admin">
+                        <img src="images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
                      
                      </li>
                      </li>

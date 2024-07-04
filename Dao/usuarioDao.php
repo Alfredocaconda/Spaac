@@ -8,14 +8,22 @@ class usuarioDao{
         $this->conexao=new PDO($dados,'root','');
     }
     public function insert(usuarioModel $model){
-        $sql="INSERT INTO usuario (nome_usuario,tipo_usuario,email_usuario,senha_usuario) values (?,?,?,?)";
+        $sql="INSERT INTO usuario(nome_usuario,tipo_usuario,email_usuario,
+        senha_usuario,telefone,instituicao_vinculado,formacao_academica,nacionalidade,grau_academico) 
+        VALUES (?,?,?,?,?,?,?,?,?)";
         $valor=$this->conexao->prepare($sql);
         $valor->bindValue(1,$model->nome_usuario);
         $valor->bindValue(2,$model->tipo_usuario);
         $valor->bindValue(3,$model->email_usuario);
         $valor->bindValue(4,$model->senha_usuario);
+        $valor->bindValue(5,$model->telefone);
+        $valor->bindValue(6,$model->instituicao_vinculado);
+        $valor->bindValue(7,$model->formacao_academica);
+        $valor->bindValue(8,$model->nacionalidade);
+        $valor->bindValue(9,$model->grau_academico);
         $valor->execute();
-    }
+        
+}
     public function update(usuarioModel $model){
         $sql="UPDATE usuario SET nome_usuario=?,tipo_usuario=?,email_usuario=?,senha_usuario=? WHERE id_usuario=?";
         $valor=$this->conexao->prepare($sql);

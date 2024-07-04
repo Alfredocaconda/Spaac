@@ -2,7 +2,7 @@
 
 class monografiaModel{
     public $id_monografia,$titulo_monografia,$instituicao_ensino,$resumo_monografia,
-    $palavra_chave,$ficheiro,$data_submissao,$data_avaliacao,$id_autor,$id_categoria,$data_publicacao, $capa;
+    $palavra_chave,$ficheiro,$data_submissao,$id_usuario,$id_categoria, $capa;
     public $linhas;
     
     public function save(){
@@ -18,10 +18,10 @@ class monografiaModel{
         
         
     }
-    public function listar(){
+    public function listar($nome){
         include 'Dao/monografiaDao.php';
         $dados=new monografiaDao();
-       $this->linhas= $dados->select();
+       $this->linhas= $dados->select($nome);
 
     }
     public function listarId(int $id_monografia){

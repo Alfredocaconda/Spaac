@@ -15,7 +15,7 @@ public static function index(){
    // isProtected();
     include "Model/monografiaModel.php";
     $model=new monografiaModel();
-    $model->listar();
+    $model->listar("");
     Middleware::auth();
     include 'View/Modules/monografia/listarmonografia.php';
 }
@@ -36,8 +36,9 @@ public static function save(){
     $model->instituicao_ensino=$_POST['instituicao_ensino'];
     $model->resumo_monografia=$_POST['resumo_monografia'];
     $model->data_submissao=$_POST['data_submissao'];
-    $model->data_avaliacao=$_POST['data_avaliacao'];
     $model->palavra_chave=$_POST['palavra_chave'];
+    $model->id_categoria=$_POST['id_categoria'];
+    $model->id_usuario=$_POST['id_usuario'];
     if((isset($_FILES['ficheiro']) && $_FILES['ficheiro']['error'] == 0) && (isset($_FILES['capa']) && $_FILES['capa']['error'] == 0)) {
         $ficheiro = $_FILES['ficheiro']['name'];
         $model->ficheiro=$_FILES['ficheiro']['tmp_name'];
@@ -48,18 +49,12 @@ public static function save(){
         $model->capa=$_FILES['capa']['tmp_name'];
         $model->capa = '../MONOGRAFIAS/' . $capa;
         move_uploaded_file($_FILES['capa']['tmp_name'], $capa);
-    
-   
-    
+
     } else {
         $ficheiro = null; // Se nenhum arquivo foi enviado
     }
-      
-    
-   
-    $model->id_categoria=$_POST['id_categoria'];
-    $model->id_autor=$_POST['id_autor'];
     $model->save();
+
     Middleware::auth();
     header("Location: /monografia");
 }

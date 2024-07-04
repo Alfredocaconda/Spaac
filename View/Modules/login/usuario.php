@@ -49,27 +49,52 @@
                               <input type="text" name="nome" placeholder="Nome" />
                            </div>
                            <div class="field">
-                              <select name="tipo" id="">
+                              <label class="label_field">Nº do Telefone</label>
+                              <input type="number" name="telefone" placeholder="+244XXXXXXXXX" required/>
+                           </div>
+                           <div class="field">
+                              <label class="label_field">Instituição</label>
+                              <input type="text" name="instituicao" placeholder="Instituição Vinculado" required/>
+                           </div>
+                           <div class="field">
+                              <label class="label_field">Formação</label>
+                              <input type="text" name="formacao" placeholder="Formação Academico" required/>
+                           </div>
+                           <div class="field">
+                              <label class="label_field">Nacionalidade</label>
+                              <input type="text" name="nacionalidade" placeholder="Nacionalidade" />
+                           </div>
+                           
+                           <div class="field">
+                           <label class="label_field">Tipo</label>
+                              <select name="tipo" id="" required>
                                  <option >Selecionar o Tipo</option>
                                  <option >Estudante</option>
                                  <option >Professor</option>
                               </select>
                            </div>
                            <div class="field">
+                           <label class="label_field">Grau</label>
+                              <select name="grau" id="" required>
+                                 <option >Grau Academico</option>
+                                 <option >PhD</option>
+                                 <option >Mestrado</option>
+                                 <option >Licenciado</option>
+                                 <option >Bacharel</option>
+                                 <option >Médio</option>
+                              </select>
+                           </div>
+                           <div class="field">
                               <label class="label_field">Email</label>
-                              <input type="email" name="email" placeholder="email" />
+                              <input type="email" name="email" placeholder="Email" required/>
                            </div>
                            <div class="field">
                               <label class="label_field">Senha</label>
-                              <input type="password" name="senha" placeholder="Senha" />
-                           </div>
-                           <div class="field">
-                              <label class="label_field hidden">hidden label</label>
-                             
+                              <input type="password" name="senha" placeholder="Senha" required/>
                            </div>
                            <div class="field margin_0">
-                              <label class="label_field hidden">hidden label</label>
-                              <button class="main_bt">Entrar</button>
+                              <label class="label_field hidden"></label>
+                              <button class="main_bt">Enviar</button>
                            </div>
                         </fieldset>
                      </form>

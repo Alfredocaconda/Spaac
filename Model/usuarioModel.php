@@ -1,7 +1,8 @@
 <?php
 
 class usuarioModel{
-    public $id_usuario,$nome_usuario,$tipo_usuario,$email_usuario,$senha_usuario;
+    public $id_usuario,$nome_usuario,$tipo_usuario,$email_usuario,$senha_usuario,$telefone
+    ,$instituicao_vinculado,$formacao_academica,$nacionalidade,$grau_academico;
     public $linhas;
     
     public function save(){

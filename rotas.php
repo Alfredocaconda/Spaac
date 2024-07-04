@@ -3,8 +3,6 @@
 include "Controller/RevisorController.php";
 #controller da monografia
 include "Controller/monografiaController.php";
-
-include "Controller/autorController.php";
 #controller da categoria
 include "Controller/CategoriaController.php";
 #controller da login
@@ -45,7 +43,6 @@ include 'Controller/arquivosController.php';
                 # rota da para o Início do Dashboard...
                 dashboardController::dashboard();
                 break;
-
          case '/login':
             # rota da pagina inicial...
             LoginController::index();
@@ -126,25 +123,7 @@ include 'Controller/arquivosController.php';
             CategoriaController::delete();
             break;
             #============================= FIM DAS ROTAS DE artigo
-
-
-            #======================== rotas de artigo=======================
-        case '/autor':
-            # chamando a class controlcom a funcao de pagina inicial...
-            autorController::index();
-            break;
-        case '/autor/form':
-            # chamando a class control com a funcao de formulario...
-            autorController::form();
-            break;
-        case '/autor/form/save':
-            autorController::save();
-            break;
-        case '/autor/delete':
-            autorController::delete();
-            break;
-            #============================= FIM DAS ROTAS DE artigo
-
+            
             #======================== rotas de artigo=======================
         case '/Revisao':
             # chamando a class controlcom a funcao de pagina inicial...

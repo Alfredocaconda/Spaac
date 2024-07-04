@@ -8,47 +8,56 @@ class artigoDao{
         $this->conexao=new PDO($dados,'root','');
     }
     public function insert(artigoModel $model){
+        $data_actual=date("Y-m-d");
         $sql="INSERT INTO artigo_cientifico (titulo,resumo,volume,data_submissao,
-        data_avaliacao,palavra_chave,data_publicacao,ficheiro,capa,id_autor,id_categoria) 
-        values (?,?,?,?,?,?,?,?,?,?,?)";
+        palavra_chave,ficheiro,capa,id_usuario,id_categoria) 
+        values (?,?,?,?,?,?,?,?,?)";
         $valor=$this->conexao->prepare($sql);
         $valor->bindValue(1,$model->titulo);
         $valor->bindValue(2,$model->resumo);
         $valor->bindValue(3,$model->volume);
-        $valor->bindValue(4,$model->data_submissao);
-        $valor->bindValue(5,$model->data_avaliacao);
-        $valor->bindValue(6,$model->palavra_chave);
-        $valor->bindValue(7,$model->data_publicacao);
-        $valor->bindValue(8,$model->ficheiro);
-        $valor->bindValue(9,$model->capa);
-        $valor->bindValue(10,$model->id_autor);
-        $valor->bindValue(11,$model->id_categoria);
+        $valor->bindValue(4,$data_actual);
+        $valor->bindValue(5,$model->palavra_chave);
+        $valor->bindValue(6,$model->ficheiro);
+        $valor->bindValue(7,$model->capa);
+        $valor->bindValue(8,$model->id_usuario);
+        $valor->bindValue(9,$model->id_categoria);
         $valor->execute();
     }
     public function update(artigoModel $model){
         $sql="UPDATE artigo_cientifico SET titulo=?,resumo=?,volume=?,data_submissao=?
-         ,data_avaliacao=?,palavra_chave=?,data_publicacao=?,ficheiro=?,capa=?,id_autor=?,id_categoria=?
+         ,data_avaliacao=?,palavra_chave=?,data_publicacao=?,ficheiro=?,capa=?,id_usuario=?,id_categoria=?
         WHERE id_artigo_cientifico=?";
         $valor=$this->conexao->prepare($sql);
         $valor->bindValue(1,$model->titulo);
         $valor->bindValue(2,$model->resumo);
         $valor->bindValue(3,$model->volume);
-        $valor->bindValue(4,$model->data_submissao);
-        $valor->bindValue(5,$model->data_avaliacao);
+        $data_actual=date("Y-m-d");
+        $valor->bindValue(4,$data_actual);
         $valor->bindValue(6,$model->palavra_chave);
-        $valor->bindValue(7,$model->data_publicacao);
         $valor->bindValue(8,$model->ficheiro);
         $valor->bindValue(9,$model->capa);
-        $valor->bindValue(10,$model->id_autor);
+        $valor->bindValue(10,$model->id_usuario);
         $valor->bindValue(11,$model->id_categoria);
         $valor->bindValue(12,$model->id_artigo);
         $valor->execute();
     }
-    public function select(){
-        $sql="SELECT * FROM vartigo";
-        $valor=$this->conexao->prepare($sql);
+    public function select($nome){
+        $valor=null;
+        if($nome == ""){
+            $sql="SELECT * FROM vartigo";
+            $valor=$this->conexao->prepare($sql);
+        }else{
+            $sql="SELECT * FROM vartigo where nome_usuario like ? or titulo like ? or palavra_chave like ?";
+            $valor=$this->conexao->prepare($sql);
+            $pesquisar = "%$nome%"; 
+            $valor->bindValue(1,$pesquisar);
+            $valor->bindValue(2,$pesquisar);
+            $valor->bindValue(3,$pesquisar);
+        }
         $valor->execute();
         return $valor->fetchAll(PDO::FETCH_CLASS);
+        
     }
     public function selectId(int $id_artigo ){
         include_once "Model/artigoModel.php";
