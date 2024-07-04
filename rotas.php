@@ -13,6 +13,7 @@ include "Controller/errorController.php";
 include "Controller/RevisaoController.php";
 #Controller Usuário
 include "Controller/usuarioController.php";
+include "Controller/FuncionarioController.php";
 #Controller Artigo
 include "Controller/artigoController.php";
 #Controller Principal
@@ -91,6 +92,7 @@ include 'Controller/arquivosController.php';
         case '/Revisor/delete':
             RevisorController::delete();
             break;
+
         case '/usuario':
             # chamando a class controlcom a funcao de pagina inicial...
             usuarioController::index();
@@ -105,6 +107,24 @@ include 'Controller/arquivosController.php';
         case '/usuario/delete':
             usuarioController::delete();
             break;
+
+
+            //funcionario
+            
+            case '/Funcionario':
+                # chamando a class controlcom a funcao de pagina inicial...
+                FuncionarioController::index();
+                break;
+            case '/Funcionario/form':
+                # chamando a class control com a funcao de formulario...
+                FuncionarioController::form();
+                break;
+            case '/Funcionario/form/save':
+                FuncionarioController::save();
+                break;
+            case '/Funcionario/delete':
+                FuncionarioController::delete();
+                break;
 
 
             #======================== ROTAS DA CATEGORIA=======================

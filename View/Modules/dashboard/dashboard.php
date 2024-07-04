@@ -68,12 +68,12 @@
                          <img src="images/img/cadastro.png" width="30"><span>Cadastro</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
                             
-                           <li><a href="autor/form"><img src="images/img/user.png" width="30"> <span>Autores</span></a></li>
-                           <li><a href="monografia/form"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
-                           <li><a href="artigo/form"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
-                           <li><a href="categoria/form"><img src="images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
+                           <li><a href="/Funcionario/form"><img src="images/img/user.png" width="30"> <span>Funcionário</span></a></li>
+                           <li><a href="/monografia/form"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
+                           <li><a href="/artigo/form"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
+                           <li><a href="//categoria/form"><img src="images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
                            <li><a href="Revisao/form"><img src="images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
-                           <li><a href="Revisor/form"> <img src="images/img/revisor.png" width="30"><span>Revisor</span></a></li>
+                           <li><a href="/Revisor/form"> <img src="images/img/revisor.png" width="30"><span>Revisor</span></a></li>
                            
                         </ul>
                      </li>
@@ -148,7 +148,7 @@
                                  <div>
                                  <p class="total_no">
                                         <?php
-                                        include "./Connection/conexao.php";
+                                          /*include "./Connection/conexao.php";
                                           // Consulta SQL para contar os usuários
                                           $sql = "SELECT COUNT(id_autor) as id_autor FROM consultaautorusuario";
                                           $result = $conexao->query($sql);
@@ -159,6 +159,7 @@
                                           } else {
                                              echo "<h1>0</h1>";
                                           } 
+                                          */
                                        ?>
                                     </p>
                                     <p class="head_couter">Autores</p>
@@ -177,7 +178,7 @@
                                  <div>
                                  <p class="total_no">
                                         <?php
-                                        include "./Connection/conexao.php";
+                                          /*include "./Connection/conexao.php";
                                           // Consulta SQL para contar os usuários
                                           $sql = "SELECT COUNT(id_monografia) as id_monografia FROM vmonografia";
                                           $result = $conexao->query($sql);
@@ -188,6 +189,7 @@
                                           } else {
                                              echo "<h1>0</h1>";
                                           } 
+                                             */
                                        ?>
                                     </p>
                                     <p class="head_couter"> Monografias</p>
@@ -206,7 +208,7 @@
                                  <div>
                                  <p class="total_no">
                                         <?php
-                                        include "./Connection/conexao.php";
+                                          /*include "./Connection/conexao.php";
                                           // Consulta SQL para contar os usuários
                                           $sql = "SELECT COUNT(id_artigo_cientifico) as id_artigo_cientifico FROM vartigo";
                                           $result = $conexao->query($sql);
@@ -217,6 +219,7 @@
                                           } else {
                                              echo "<h1>0</h1>";
                                           } 
+                                          */
                                        ?>
                                     <p class="head_couter">Artigos Científicos</p>
                                  </div>
@@ -232,9 +235,9 @@
                               </div>
                               <div class="counter_no">
                                  <div>
-                                 <p class="total_no">
+                                    <p class="total_no">
                                         <?php
-                                        include "./Connection/conexao.php";
+                                        /*include "./Connection/conexao.php";
                                           // Consulta SQL para contar os usuários
                                           $sql = "SELECT COUNT(id_revisor) as id_revisor FROM vrevisor";
                                           $result = $conexao->query($sql);
@@ -245,6 +248,7 @@
                                           } else {
                                              echo "<h1>0</h1>";
                                           } 
+                                             */
                                        ?>
                                       <p class="head_couter">Revisores</p>
                                  </div>

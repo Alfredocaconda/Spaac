@@ -45,10 +45,10 @@ class monografiaDao{
     public function select($nome){
         $valor=null;
         if($nome == ""){
-            $sql="SELECT * FROM vmonografia";
+            $sql="SELECT * FROM vmonografia where estado='aprovado'";
             $valor=$this->conexao->prepare($sql);
         }else{
-            $sql="SELECT * FROM vmonografia where nome_usuario like ? or titulo_monografia like ? or palavra_chave like ?";
+            $sql="SELECT * FROM vmonografia where estado='aprovado' and nome_usuario like ? or titulo_monografia like ? or palavra_chave like ?";
             $valor=$this->conexao->prepare($sql);
             $pesquisar = "%$nome%"; 
             $valor->bindValue(1,$pesquisar);

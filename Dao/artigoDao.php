@@ -45,10 +45,10 @@ class artigoDao{
     public function select($nome){
         $valor=null;
         if($nome == ""){
-            $sql="SELECT * FROM vartigo";
+            $sql="SELECT * FROM vartigo where estado='aprovado'";
             $valor=$this->conexao->prepare($sql);
         }else{
-            $sql="SELECT * FROM vartigo where nome_usuario like ? or titulo like ? or palavra_chave like ?";
+            $sql="SELECT * FROM vartigo where estado='aprovado' and nome_usuario like ? or titulo like ? or palavra_chave like ?";
             $valor=$this->conexao->prepare($sql);
             $pesquisar = "%$nome%"; 
             $valor->bindValue(1,$pesquisar);

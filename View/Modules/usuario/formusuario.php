@@ -69,8 +69,7 @@
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Lista de Arquivos</span></a>
                         <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="usuario"><img src="../images/img/cadUser2.png" width="30"> <span>Usuário</span></a></li>
-                           <li><a href="autor"><img src="../images/img/user.png" width="30"> <span> <span>Autores</span></a></li>
+                           <li><a href="autor"><img src="../images/img/user.png" width="30"> <span> <span>Funcionario</span></a></li>
                            <li><a href="monografia"> <img src="../images/img/monografia.png" width="30"><span>Monografias</span></a></li>
                            <li><a href="artigo"> <img src="../images/img/artigo.png" width="30"><span>Artigos Científicos</span></a></li>
                            <li><a href="categoria"> <img src="../images/img/categoria.png" width="30"><span>Categória</span></a></li>
@@ -145,38 +144,60 @@
         <div class="col">
     <!-- /.content-header -->
          <form action="/usuario/form/save" method="Post" enctype="multipart/form-data" class="row g-3">
-            <input type="hidden" name="idf"  value="<?= $model->idf ?>" >
-        <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Nome Completo</label>
-        <input type="text" class="form-control" name="nome" value="<?= $model->nome ?>" id="inputEmail4" 
-        placeholder="Digite aqui o seu nome Completo" required>
-        </div>
-        <div class="col-md-6">
-        <label for="tipo" class="form-label">Tipo de Usuário</label>
-        <input type="text" class="form-control" id="inputAddress" value="<?= $model->tipo ?>" name="tipo"
-        placeholder="Digite o tipo de usuário" required>
-        </div>
-        
-        <div class="col-md-6">
-        <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="inputAddress" value="<?= $model->email ?>"
-         name="email" 
-        placeholder="Digite o seu e-mail" required>
-        </div>
-        <div class="col-md-6">
-        <label for="senha" class="form-label">Senha</label>
-        <input type="text" class="form-control" id="inputAddress" value="<?= $model->senha ?>" name="senha" 
-        placeholder="Digite a sua senha" required>
-        </div>
-       
+            <input type="hidden" name="idf" >
+            <div class="col-md-4">
+               <label class="form-label">Nome</label>
+               <input type="text" id="inputEmail4"  class="form-control" name="nome" placeholder="Nome"  />
+            </div>
+            <div class="col-md-4">
+               <label class="form-label">Nome</label>
+               <input type="text" id="inputEmail4"  class="form-control" name="nome" placeholder="Nome"  />
+            </div>
+            <div class="col-md-4">
+               <label class="form-label">Nome</label>
+               <input type="text" id="inputEmail4"  class="form-control" name="nome" placeholder="Nome"  />
+            </div>
+            <div class="col-md-4">
+               <label class="form-label">Nome</label>
+               <input type="text" id="inputEmail4"  class="form-control" name="nome" placeholder="Nome"  />
+            </div>
+            <div class="col-md-4">
+               <label class="form-label">Nome</label>
+               <input type="text" id="inputEmail4"  class="form-control" name="nome" placeholder="Nome"  />
+            </div>
+            <div class="col-md-4">
+               <label class="form-label">Nome</label>
+               <input type="text" id="inputEmail4"  class="form-control" name="nome" placeholder="Nome"  />
+            </div>
+            <div class="col-md-4">
+            <label class="form-label">Selecionar o Tipo</label>
+               <select name="tipo" id="" required>
+                  <option >Selecionar o Tipo</option>
+                  <option >Administrador</option>
+                  <option >Estudante</option>
+                  <option >Professor</option>
+               </select>
+            </div>
+            <div class="col-md-4">
+            <label class="form-label">Grau Academico</label>
+               <select name="grau" id="" required>
+                  <option >Grau Academico</option>
+                  <option >PhD</option>
+                  <option >Mestrado</option>
+                  <option >Licenciado</option>
+                  <option >Bacharel</option>
+                  <option >Médio</option>
+               </select>
+            </div>
+            
         <div class="col-12">
         <button type="submit" class="btn btn-primary"><img src="../images/img/verificar.png" width="30">Guardar</button>
         <button type="reset" class="btn btn-primary" id="btnClean"><img src="../images/img/delete.png" width="30">Limpar</button>
         <a href="/usuario" class="btn btn-primary" id="btnVerRegisto"><img src="../images/img/blog.png" width="30">Ver o Blog</a>
         </div>
     </form>
-    </div>
-    </div>
+   </div>
+</div>
      </div>
     </div>
        
