@@ -69,8 +69,8 @@
                            <label class="label_field">Tipo</label>
                               <select name="tipo" id="" required>
                                  <option >Selecionar o Tipo</option>
-                                 <option >Estudante</option>
                                  <option >Professor</option>
+                                 <option >Estudante</option>
                               </select>
                            </div>
                            <div class="field">

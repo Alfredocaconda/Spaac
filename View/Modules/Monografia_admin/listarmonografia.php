@@ -40,7 +40,7 @@
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>User</h6>
+                           <h6><?= $_SESSION['nome_usuario']?></h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -56,13 +56,12 @@
                          class="dropdown-toggle">
                          <img src="../images/img/cadastro.png" width="30"><span>Cadastro</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
-                            
-                           <li><a href="autor/form"><img src="../images/img/user.png" width="30"> <span>Autores</span></a></li>
-                           <li><a href="monografia/form"><img src="../images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
-                           <li><a href="artiogo/form"><img src="../images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
-                           <li><a href="categoria/form"><img src="../images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
-                           <li><a href="Revisao/form"><img src="../images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
-                           <li><a href="Revisor/form"> <img src="../images/img/revisor.png" width="30"><span>Revisor</span></a></li>
+                         <li><a href="/Funcionario/form"><img src="images/img/user.png" width="30"> <span>Funcionário</span></a></li>
+                           <li><a href="/monografia_admin/form"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
+                           <li><a href="/artigo_admin/form"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
+                           <li><a href="/categoria/form"><img src="images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
+                           <li><a href="Revisao/form"><img src="images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
+                           <li><a href="/Revisor/form"> <img src="images/img/revisor.png" width="30"><span>Revisor</span></a></li>
                            
                         </ul>
                      </li>
@@ -105,11 +104,9 @@
                               <ul class="user_profile_dd">
                                  <li>
                                     <a class="dropdown-toggle" data-toggle="dropdown">
-                                       <img class="img-responsive rounded-circle" src="../../../layout_img/user_img.jpg" alt="#" />
-                                       <span class="name_user">User</span></a>
+                                       <span class="name_user"><?= $_SESSION['nome_usuario']?></span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.html">Meu Perfil</a>
-                                       <a class="dropdown-item" href="/"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
+                                       <a class="dropdown-item" href="/logout"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>
                               </ul>
@@ -133,13 +130,7 @@
         <tr>
             <th scope="col">TITULO</th>
             <th scope="col">INSTITUIÇÃO</th>
-            <th scope="col">RESUMO</th>
-            <th scope="col">PALAVRA CHAVE</th>
-            <th scope="col">FICHEIRO</th>
-            <th scope="col">IMAGEM DA CAPA</th>
             <th scope="col">DATA SUBMISSÃO</th>
-            <th scope="col">DATA DE AVALIAÇÃO</th>
-            <th scope="col">DATA DA PUBLICAÇÃO</th>
             <th scope="col">AUTOR</th>
             <th scope="col">CATEGORIA</th>
             <th scope="col">OPÇÕES</th>
@@ -148,17 +139,14 @@
         <tr>
             <td scope="col"><?=$item->titulo_monografia?></td>
             <td scope="col"><?=$item->instituicao_ensino?></td>
-            <td scope="col"><?=$item->resumo_monografia?></td>
-            <td scope="col"><?=$item->palavra_chave?></td>
-            <td scope="col"><?=$item->ficheiro?></td>
-            <td scope="col"><?=$item->capa?></td>
             <td scope="col"><?=$item->data_submissao?></td>
             <td scope="col"><?=$item->nome_usuario?></td>
             <td scope="col"><?=$item->nome_categoria?></td>
-            <td width=10px;> <a href="/monografia/delete?id_monografia=<?=$item->id_monografia?>"
-            class="btn btn-danger"><img src="../images/img/excluir.png" width="20"></a></td>
-            <td width=10px;> <a href="/monografia/form?id_monografia=<?=$item->id_monografia?>"
-            class="btn btn-success"><img src="../images/img/editar.png" width="20"></a> </td>
+            <td width=10px;> <a href="/monografia_admin/delete?id_monografia=<?=$item->id_monografia?>"
+            class="btn btn-danger"><img src="../images/img/excluir.png" width="20">Delete</a></td>
+            <td width=10px;> <a href="/monografia_admin/form?id_monografia=<?=$item->id_monografia?>"
+            class="btn btn-success"><img src="../images/img/editar.png" width="20">Update</a> </td>
+            <td width=10px; > <a href="" class="btn btn-primary" style="padding-bottom: 10px;">Baixar</a> </td>
         </tr>
         <?php endforeach ?> 
     </table>

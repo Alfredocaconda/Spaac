@@ -1,6 +1,6 @@
 <?php
 
-class artigoController{
+class artigoController_admin{
     public static function auth(){
         Middleware::auth();
     
@@ -13,9 +13,9 @@ class artigoController{
 public static function index(){
     include "Model/artigoModel.php";
     $model=new artigoModel();
-    $model->listar("");
+    $model->listar_admin("");
     Middleware::auth();
-    include 'View/Modules/artigo/listarartigo.php';
+    include 'View/Modules/Artigo_admin/listarartigo.php';
 }
 
 public static function form(){
@@ -24,7 +24,7 @@ public static function form(){
     if (isset($_GET['id_artigo']))
     $model= $model->listarId((int) $_GET['id_artigo']);
     Middleware::auth();
-    include 'View/Modules/artigo/formartigo.php';
+    include 'View/Modules/Artigo_admin/formartigo.php';
 } 
 public static function save(){
     include "Model/artigoModel.php";
@@ -53,16 +53,26 @@ public static function save(){
 }
     $model->save();
     Middleware::auth();
-    header("Location: /artigo");
-    
+    header("Location: /artigo_admin");
     }
+}
+public static function update(){
+    include "Model/artigoModel.php";
+    
+    $model=new artigoModel();
+    $model->id_artigo=$_POST['id_artigo'];
+    $model->aprovar=$_POST['aprovar'];
+    $model->update_admin();
+    Middleware::auth();
+    header("Location: /artigo_admin");
+    
 }
 public static function delete(){
     include "Model/artigoModel.php";
     $model=new artigoModel();
     $model->delete((int) $_GET['id_artigo']);
     Middleware::auth();
-    header("Location: /artigo");
+    header("Location: /artigo_admin");
 }
 }
 ?>

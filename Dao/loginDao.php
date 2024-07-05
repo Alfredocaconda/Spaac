@@ -31,7 +31,7 @@ class LoginDAO {
                     # code...
                     header("Location: /principal2");
                 } else {
-                    if($_SESSION['tipo_usuario']=="admin" ){
+                    if($_SESSION['tipo_usuario']=="Administrador" ){
                         header("Location: /");
                     }else{
                         header("Location: /login");  

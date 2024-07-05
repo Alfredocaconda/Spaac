@@ -42,13 +42,38 @@ class artigoDao{
         $valor->bindValue(12,$model->id_artigo);
         $valor->execute();
     }
+    public function update_admin(artigoModel $model){
+        $sql="UPDATE artigo_cientifico SET estado=?,data_submissao=? WHERE id_artigo_cientifico=?";
+        $valor=$this->conexao->prepare($sql);
+        $valor->bindValue(1,$model->aprovar);
+        $data_actual=date("Y-m-d");
+        $valor->bindValue(2,$data_actual);
+        $valor->bindValue(3,$model->id_artigo);
+        $valor->execute();
+    }
     public function select($nome){
         $valor=null;
-        if($nome == ""){
+        if($nome==""){
             $sql="SELECT * FROM vartigo where estado='aprovado'";
             $valor=$this->conexao->prepare($sql);
         }else{
-            $sql="SELECT * FROM vartigo where estado='aprovado' and nome_usuario like ? or titulo like ? or palavra_chave like ?";
+            $sql="SELECT * FROM vartigo where estado='aprovado' and  nome_usuario like ? or titulo like ? or palavra_chave like ?";
+            $valor=$this->conexao->prepare($sql);
+            $pesquisar = "%$nome%"; 
+            $valor->bindValue(1,$pesquisar);
+            $valor->bindValue(2,$pesquisar);
+            $valor->bindValue(3,$pesquisar);
+        }
+        $valor->execute();
+        return $valor->fetchAll(PDO::FETCH_CLASS);
+    }
+    public function select_admin($nome){
+        $valor=null;
+        if($nome == ""){
+            $sql="SELECT * FROM vartigo ";
+            $valor=$this->conexao->prepare($sql);
+        }else{
+            $sql="SELECT * FROM vartigo where nome_usuario like ? or titulo like ? or palavra_chave like ?";
             $valor=$this->conexao->prepare($sql);
             $pesquisar = "%$nome%"; 
             $valor->bindValue(1,$pesquisar);

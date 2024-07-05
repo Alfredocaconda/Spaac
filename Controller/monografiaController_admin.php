@@ -1,6 +1,6 @@
 <?php
 
-class monografiaController{
+class monografiaController_admin{
     public static function auth(){
         Middleware::auth();
     
@@ -12,20 +12,20 @@ class monografiaController{
     }
 
 public static function index(){
+   // isProtected();
     include "Model/monografiaModel.php";
     $model=new monografiaModel();
-    $model->listar("");
+    $model->listar_admin("");
     Middleware::auth();
-    include 'View/Modules/monografia/listarmonografia.php';
-    }
-
+    include 'View/Modules/Monografia_admin/listarmonografia.php';
+}
 public static function form(){
     include "Model/monografiaModel.php";
     $model=new monografiaModel();
     if (isset($_GET['id_monografia']))
     $model= $model->listarId((int) $_GET['id_monografia']);
     Middleware::auth();
-    include 'View/Modules/monografia/formmonografia.php';
+    include 'View/Modules/Monografia_admin/formmonografia_update.php';
 } 
 public static function save(){
     include "Model/monografiaModel.php";
@@ -56,14 +56,24 @@ public static function save(){
     $model->save();
 
     Middleware::auth();
-    header("Location: /monografia");
+    header("Location: /monografia_admin");
+}
+public static function update(){
+    include "Model/monografiaModel.php";
+    $model=new monografiaModel();
+    $model->id_monografia=$_POST['id_monografia'];
+    $model->aprovar=$_POST['aprovar'];
+    $model->update_admin();
+    Middleware::auth();
+    header("Location: /monografia_admin");
 }
 public static function delete(){
     include "Model/monografiaModel.php";
+    
     $model=new monografiaModel();
     $model->delete((int) $_GET['id_monografia']);
     Middleware::auth();
-    header("Location: /monografia");
+    header("Location: /monografia_admin");
 
 }
 }

@@ -78,11 +78,6 @@ try {
                            <li><a href="monografia"> <img src="../images/img/monografia.png" width="30"><span>Monografias</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="../index.php"><img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
-                     
-                     </li>
-                     </li>
-                     
                   </ul>
                </div>
             </nav>

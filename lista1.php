@@ -3,8 +3,6 @@
 $pasta="MONOGRAFIAS/";
 $diretorio=dir($pasta);
 
-
-
 while($arquivo= $diretorio->read()){
     if($arquivo!='.' && $arquivo!='..'){
 

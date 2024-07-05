@@ -30,6 +30,7 @@
       <link rel="stylesheet" href="../../../css/custom.css" />
      
    </head>
+  
    <body class="dashboard dashboard_1">
       <div class="full_container">
          <div class="inner_container">
@@ -40,7 +41,8 @@
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>User</h6>
+                          
+                           <h6><?=$_SESSION['nome_usuario']?></h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -79,8 +81,6 @@
                            <li><a href="Revisor"><img src=".../images/img/revisor.png" width="30"> <span>Revisor</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="../index.php"><!--<i class="fa fa-cog yellow_color"></i>--> <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
-                     
                      </li>
                      </li>
                      
@@ -106,10 +106,9 @@
                                  <li>
                                     <a class="dropdown-toggle" data-toggle="dropdown">
                                        <img class="img-responsive rounded-circle" src="../../../layout_img/user_img.jpg" alt="#" />
-                                       <span class="name_user">User</span></a>
+                                       <span class="name_user"><?=$_SESSION['nome_usuario']?></span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.html">Meu Perfil</a>
-                                       <a class="dropdown-item" href="/"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
+                                       <a class="dropdown-item" href="/principal2"><span>Voltar</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>
                               </ul>
@@ -143,6 +142,7 @@
         </tr>
         <?php foreach ($model->linhas as $item): ?>
          <tr>
+         
             <td scope="col"><?=$item->id_artigo_cientifico?></td>
             <td scope="col"><?=$item->titulo?></td>
             <td scope="col"><?=$item->resumo?></td>

@@ -1,16 +1,5 @@
-<?php
-try {
-   include "Dao/usuarioDao.php";
-   $usuario_dao= new usuarioDao();
-   $listar_usuario=$usuario_dao->select();
-   $total_usuario=count($listar_usuario);
-} catch (Exception $ex) {
-   //throw $th;
-   echo $ex->getMessage();
-}
-?>
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="PT">
    <head>
       <!-- basic -->
       <meta charset="utf-8">
@@ -51,7 +40,7 @@ try {
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>User</h6>
+                           <h6><?=$_SESSION['nome_usuario']?></h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -68,28 +57,16 @@ try {
                          <img src="../images/img/cadastro.png" width="30"><span>Cadastro</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
                             
-                           <li><a href="autor/form"><img src="../images/img/user.png" width="30"> <span>Autores</span></a></li>
-                           <li><a href="monografia/form"><img src="../images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
-                           <li><a href="artiogo/form"><img src="../images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
-                           <li><a href="categoria/form"><img src="../images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
-                           <li><a href="Revisao/form"><img src="../images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
-                           <li><a href="Revisor/form"> <img src="../images/img/revisor.png" width="30"><span>Revisor</span></a></li>
+                         <li><a href="/Funcionario/form"><img src="images/img/user.png" width="30"> <span>Funcionário</span></a></li>
+                           <li><a href="/monografia_admin/form"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
+                           <li><a href="/artigo_admin/form"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
+                           <li><a href="/categoria/form"><img src="images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
+                           <li><a href="Revisao/form"><img src="images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
+                           <li><a href="/Revisor/form"> <img src="images/img/revisor.png" width="30"><span>Revisor</span></a></li>
                            
                         </ul>
                      </li>
 
-                     <li>
-                        <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Lista de Arquivos</span></a>
-                        <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="usuario"><img src="../images/img/cadUser2.png" width="30"> <span>Usuário</span></a></li>
-                           <li><a href="autor"><img src="../images/img/user.png" width="30"> <span> <span>Autores</span></a></li>
-                           <li><a href="monografia"> <img src="../images/img/monografia.png" width="30"><span>Monografias</span></a></li>
-                           <li><a href="artigo"> <img src="../images/img/artigo.png" width="30"><span>Artigos Científicos</span></a></li>
-                           <li><a href="categoria"> <img src="../images/img/categoria.png" width="30"><span>Categória</span></a></li>
-                           <li><a href="Revisao"><img src="../images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
-                           <li><a href="Revisor"><img src=".../images/img/revisor.png" width="30"> <span>Revisor</span></a></li>
-                        </ul>
-                     </li>
                      <li><a href="../index.php"><!--<i class="fa fa-cog yellow_color"></i>--> <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
                      
                      </li>
@@ -118,10 +95,9 @@ try {
                                  <li>
                                     <a class="dropdown-toggle" data-toggle="dropdown">
                                        <img class="img-responsive rounded-circle" src="../../../layout_img/user_img.jpg" alt="#" />
-                                       <span class="name_user">User</span></a>
+                                       <span class="name_user"><?=$_SESSION['nome_usuario']?></span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.html">Meu Perfil</a>
-                                       <a class="dropdown-item" href="/"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
+                                       <a class="dropdown-item" href="/logout"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>
                               </ul>
@@ -130,8 +106,6 @@ try {
                      </div>
                   </nav>
                </div>
-
-               
                <!-- end topbar -->
                <!-- dashboard inner -->
                <div class="midde_cont">
@@ -140,52 +114,48 @@ try {
                         <div class="col-md-12">
                      
                               <div class="page_title">
-                              <img src="../images/img/user.png" class="ImgCadUser" width="60">
-                              <h2 class="titleRA">Cadastro de Autor</h2>
+                              <img src="../images/img/artigo.png" class="ImgCadUser" width="60">
+                              <h2 class="titleRA">Submeter o Artigo Científico</h2>
                         
                            </div>
 
                            </div>
                         </div>
                      </div>
-
-    <form action="/autor/form/save" method="Post" enctype="multipart/form-data" class="row g-3">
-        <input type="hidden" name="id_autor"  value="<?= $model->id_autor ?>" >
+            
+       <form action="/artigo_admin_update/form/save" method="Post" enctype="multipart/form-data" class="row g-3">
+        <input type="hidden" name="id_artigo"  value="<?= $model->id_artigo ?>" >
         <div class="col-md-6">
-         <label for="inputEmail4" class="form-label"></label>
-         <input type="text" class="form-control" name="instituicao_vinculado" value="<?= $model->instituicao_vinculado ?>" id="inputEmail4" 
-        placeholder="Instituição Vinculado" required>
+        <label for="inputEmail4" class="form-label">TITULO</label>
+        <input type="text" class="form-control" value="<?= $model->titulo ?>" id="inputEmail4" 
+        placeholder="DIGITE AQUI O SEU TITULO" >
         </div>
-       
-        <div class="col-md-6">
-        <label for="nacionalidade_autor" class="form-label"></label>
-        <input type="text" class="form-control" id="inputAddress"
-         value="<?= $model->nacionalidade_autor ?>" name="nacionalidade_autor"
-        placeholder="Nacionalidade do Autor" required>
-        </div>
-        <div class="col-md-6">
-        <label for="grau_academico" class="form-label"></label>
-        <input type="text" class="form-control" id="inputAddress"
-         value="<?= $model->grau_academico ?>" name="grau_academico"
-        placeholder="Grau Académico" required>
-        </div>
-      </br>
       
         <div class="col-md-6">
-         <select name="id_usuario" id="id_usuario">
-            <option> Selecione o Usuário</option>
-            <?php for($i=0;$i<$total_usuario;$i++):?>
-            <option value="<?= $listar_usuario[$i]->id_usuario ?>"
-            ><?= $listar_usuario[$i]->nome_usuario ?></option>
-            <?php endfor ?>
+        <label for="volume" class="form-label">VOLUME</label>
+        <input type="text" class="form-control" id="inputAddress"
+         value="<?= $model->volume ?>" placeholder="DIGITE AQUI O VOLUME" >
+        </div>
+        
+        <div class="col-md-6">
+        <label for="palavra_chave" class="form-label">PALAVRA CHAVE</label>
+        <input type="text" class="form-control" id="inputAddress"
+         value="<?= $model->palavra_chave ?>" placeholder="DIGITE AQUI A SUA PALAVRA CHAVE" >
+        </div>
+        <div class="col-md-6">
+         <br>
+         <select name="aprovar" id="aprovar">
+            <option>SELECIONAR O ESTADO</option>
+            <option>Aprovado</option>
+            <option>Não Aprovado</option>
+            <option>Pendente</option>
          </select>
         </div>
-
-        <br>
         <div class="col-12">
+         <br>
         <button type="submit" class="btn btn-primary"><img src="../images/img/verificar.png" width="30">Guardar</button>
         <button type="reset" class="btn btn-primary" id="btnClean"><img src="../images/img/delete.png" width="30">Limpar</button>
-        <a href="/autor" class="btn btn-primary" id="btnVerRegisto"><img src="../images/img/ver.png" width="30">Ver os registos</a>
+        <a href="/artigo" class="btn btn-primary" id="btnVerRegisto"><img src="../images/img/ver.png" width="30">Ver os registos</a>
         </div>
     </form>
     </div>

@@ -1,5 +1,16 @@
+<?php
+try {
+   include "Dao/categoriaDao.php";
+   $categoria_dao= new categoriaDao();
+   $listar_categoria=$categoria_dao->select();
+   $total_categoria=count($listar_categoria);
+} catch (Exception $ex) {
+   //throw $th;
+   echo $ex->getMessage();
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT">
    <head>
       <!-- basic -->
       <meta charset="utf-8">
@@ -8,7 +19,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>YSJ</title>
+      <title>SPAAC</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -28,19 +39,19 @@
       <link rel="stylesheet" href="../../../css/perfect-scrollbar.css" />
       <!-- custom css -->
       <link rel="stylesheet" href="../../../css/custom.css" />
-     
+    
    </head>
    <body class="dashboard dashboard_1">
       <div class="full_container">
          <div class="inner_container">
-             <!-- Sidebar  -->
-             <nav id="sidebar">
+              <!-- Sidebar  -->
+              <nav id="sidebar">
                <div class="sidebar_blog_1">
                   <div class="sidebar_user_info">
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>User</h6>
+                           <h6><?=  $_SESSION['nome_usuario']?></h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -49,20 +60,20 @@
                <div class="sidebar_blog_2">
                   <h4>Menu</h4>
                   <ul class="list-unstyled components">
-                  <li><a href="../dashboard.php"> <img src="../images/img/home2.png" width="30"> <span>Home</span></a></li>
+                  <li><a href="/dashboard"> <img src="../images/img/home2.png" width="30"> <span>Home</span></a></li>
 
                      <li class="active">
                         <a href="#dashboard" data-toggle="collapse" aria-expanded="false"
                          class="dropdown-toggle">
                          <img src="../images/img/cadastro.png" width="30"><span>Cadastro</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
-                            
-                           <li><a href="autor/form"><img src="../images/img/user.png" width="30"> <span>Autores</span></a></li>
-                           <li><a href="monografia/form"><img src="../images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
-                           <li><a href="artiogo/form"><img src="../images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
-                           <li><a href="categoria/form"><img src="../images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
-                           <li><a href="Revisao/form"><img src="../images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
-                           <li><a href="Revisor/form"> <img src="../images/img/revisor.png" width="30"><span>Revisor</span></a></li>
+                          
+                         <li><a href="/Funcionario/form"><img src="images/img/user.png" width="30"> <span>Funcionário</span></a></li>
+                           <li><a href="/monografia_admin/form"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
+                           <li><a href="/artigo_admin/form"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
+                           <li><a href="/categoria/form"><img src="images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
+                           <li><a href="Revisao/form"><img src="images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
+                           <li><a href="/Revisor/form"> <img src="images/img/revisor.png" width="30"><span>Revisor</span></a></li>
                            
                         </ul>
                      </li>
@@ -97,7 +108,8 @@
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
                            <a href="/dashboard">
-                             <img class="img-responsive" src="../../../images/logo/SPAACbranco.png" alt="#" />
+                        
+                              <img class="img-responsive" src="../../../images/logo/SPAACbranco.png" alt="#" />
                            </a>
                         </div>
                         <div class="right_topbar">
@@ -106,10 +118,9 @@
                                  <li>
                                     <a class="dropdown-toggle" data-toggle="dropdown">
                                        <img class="img-responsive rounded-circle" src="../../../layout_img/user_img.jpg" alt="#" />
-                                       <span class="name_user">User</span></a>
+                                       <span class="name_user"><?=  $_SESSION['nome_usuario'] ?></span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.html">Meu Perfil</a>
-                                       <a class="dropdown-item" href="/"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
+                                       <a class="dropdown-item" href="/logaut"><span>Sair</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>
                               </ul>
@@ -118,6 +129,8 @@
                      </div>
                   </nav>
                </div>
+
+               
                <!-- end topbar -->
                <!-- dashboard inner -->
                <div class="midde_cont">
@@ -125,35 +138,42 @@
                      <div class="row column_title">
                         <div class="col-md-12">
                            <div class="page_title">
-                              <h2>Lista de todos autores cadastrados</h2>
+                              <img src="../images/img/monografia.png" class="ImgCadUser" width="60">
+                              <h2 class="titleRA">Aprovação de Monografia</h2>
                            </div>
                         </div>
                      </div>
-    <table class="table table-hover">
-        <tr>
-            <th scope="col">CODIGO</th>
-            <th scope="col">NOME</th>
-            <th scope="col">NACIONALIDADE</th>
-            <th scope="col">GRAU ACADEMICO</th>
-            <th scope="col">INSTITUIÇÃO VINCULADA</th>
-            <th scope="col">OPÇÕES</th>
-        </tr>
-        <?php foreach ($model->linhas as $item): ?>
-        <tr>
-            <td scope="col"><?=$item->id_autor?></td>
-            <td scope="col"><?=$item->nome_usuario?></td>
-            <td scope="col"><?=$item->nacionalidade_autor?></td>
-            <td scope="col"><?=$item->grau_academico?></td>
-            <td scope="col"><?=$item->instituicao_vinculado?></td>
-            <td width=10px;> <a href="/autor/delete?id_autor=<?=$item->id_autor?>"
-            class="btn btn-danger">APAGAR</a></td>
-            <td width=10px;> <a href="/autor/form?id_autor=<?=$item->id_autor?>"
-            class="btn btn-success">EDITAR</a></td>
-        </tr>
-        <?php endforeach ?> 
-    </table>
+                  </div>
+      <form action="/monografia_admin_update/form/save" method="Post" enctype="multipart/form-data" class="row g-3">
+        <input type="hidden" name="id_monografia"  value="<?= $model->id_monografia ?>" >
+        <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">TITULO</label>
+        <input type="text" class="form-control" value="<?= $model->titulo_monografia ?>" id="inputEmail4" 
+        placeholder="DIGITE AQUI O SEU titulo_monografia" >
+        </div>
+        <div class="col-md-6">
+        <label for="resumo" class="form-label">INSTITUTO DE ENSINO</label>
+        <input type="text" class="form-control" id="inputAddress"
+         value="<?= $model->instituicao_ensino ?>" placeholder="DIGITE AQUI O instituicao_ensino" >
+        </div>
+       
+        <div class="col-md-6">
+         <br>
+         <select name="aprovar" id="aprovar">
+            <option>SELECIONAR O ESTADO</option>
+            <option>Aprovado</option>
+            <option>Não Aprovado</option>
+            <option>Pendente</option>
+         </select>
+        </div>
+        <div class="col-12">
+           <br>
+        <button type="submit" class="btn btn-primary"><img src="../images/img/verificar.png" width="30">Guardar</button>
+        <a href="/monografia_admin" class="btn btn-primary" id="btnVerRegisto"><img src="../images/img/ver.png" width="30">Ver os registos</a>
+         
+        </div>
+    </form>
     </div>
-    <a href="/autor/form" class="btn btn-primary" id="btnVerRegisto"><img src="../images/img/cadastro.png" width="30">Add novo</a>
                   <!-- footer -->
                   <div class="container-fluid">
                      <div class="footer">

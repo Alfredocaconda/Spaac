@@ -72,9 +72,7 @@ try {
                            <li><a href="artigo/form"><img src="../images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="../index.php">
-                        <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
-                     </li>
+                     
                      </li>
                      
                   </ul>

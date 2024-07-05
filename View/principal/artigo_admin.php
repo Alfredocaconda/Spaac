@@ -43,9 +43,18 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
               <li class="nav-item active"><a class="nav-link" href="">Inicio</a></li> 
-              <li class="nav-item"><a class="nav-link" href="/artigo_">Artigo Cientificos</a></li> 
-              <li class="nav-item"><a class="nav-link" href="/monografia_">Monografia</a></li> 
-              <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="/artigo_admin">Artigo Cientificos</a></li> 
+              <li class="nav-item"><a class="nav-link" href="/monografia_admin">Monografia</a></li> 
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Submeter</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="/monografia/form">Monografia</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/artigo/form">Artigo</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href=""><?= $_SESSION['nome_usuario']?></a></li>
+              <li class="nav-item"><a class="nav-link" href="/logout">Sair</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-social">
               <li><a href="https://www.facebook.com/profile.php?id=100063929982758" target="_blank"><i class="ti-facebook"></i></a></li>
@@ -64,7 +73,7 @@
       <div class="container">
         <div class="hero-banner">
           <div style="text-align:center; margin-left:-14px; " class="col-md-6">
-            <form style="width:200%"  action="/principal" method="Post" enctype="multipart/form-data" class="row g-3">
+            <form style="width:200%"  action="/principal2" method="Post" enctype="multipart/form-data" class="row g-3">
               <div class="col-md-6">
                 <input style="text-align:center;" type="text" class="form-control" id="inputAddress" name="nome"
                 placeholder="PESQUISAR">
@@ -82,24 +91,6 @@
     </section>
     <!--================Hero Banner end =================-->  
 
-    <!--================ Blog slider start =================--> 
-    <h1> DESTAQUES DAS MONOGRAFIAS</h1>  
-    <section>
-      <div class="container">
-        <div class="owl-carousel owl-theme blog-slider">
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__content">
-              <?php foreach ($monografia->linhas as $item): ?>
-                <h3>Titulo :<?=$item->titulo_monografia ?></h3>
-                <p>Autor : <?=$item->nome_usuario ?></p>
-                <p><a href="/arquivos?id=<?php echo $item->id_monografia; ?>"target="_blank">Visualizar</a></p>
-              <?php endforeach ?> 
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--================ Blog slider end =================-->  
     <!--================ Blog slider start =================--> 
     <h1> DESTAQUES ARTIGOS CIENTIFICOS</h1>  
     <section>

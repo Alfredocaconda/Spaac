@@ -49,7 +49,8 @@
                <div class="sidebar_blog_2">
                   <h4>GERAL</h4>
                   <ul class="list-unstyled components">
-                  <li><a href="../dashboard"> <img src="../images/img/home2.png" width="30"> <span>Home</span></a></li>
+                  <li><a href="../dashboard"> <img src="../images/img/home2.png" width="30">
+                   <span>Home</span></a></li>
 
                      <li class="active">
                         <a href="#dashboard" data-toggle="collapse" aria-expanded="false"
@@ -65,14 +66,11 @@
                            <li><a href="monografia"> <img src="../images/img/monografia.png" width="30"><span>Monografias</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="../index.php"> <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
-                     </li>
-                     </li>
-                     
                   </ul>
                </div>
             </nav>
             <!-- end sidebar -->
+             
             <!-- right content -->
             <div id="content">
                <!-- topbar -->
@@ -118,11 +116,9 @@
             <th scope="col">TITULO</th>
             <th scope="col">INSTITUIÇÃO</th>
             <th scope="col">RESUMO</th>
-            <th scope="col">PALAVRA CHAVE</th>
-            <th scope="col">FICHEIRO</th>
-            <th scope="col">IMAGEM DA CAPA</th>
             <th scope="col">DATA SUBMISSÃO</th>
             <th scope="col">CATEGORIA</th>
+            <th scope="col">ESTADO</th>
             <th scope="col">OPÇÕES</th>
         </tr>
         <?php foreach ($model->linhas as $item): ?>
@@ -130,11 +126,9 @@
             <td scope="col"><?=$item->titulo_monografia?></td>
             <td scope="col"><?=$item->instituicao_ensino?></td>
             <td scope="col"><?=$item->resumo_monografia?></td>
-            <td scope="col"><?=$item->palavra_chave?></td>
-            <td scope="col"><?=$item->ficheiro?></td>
-            <td scope="col"><?=$item->capa?></td>
             <td scope="col"><?=$item->data_submissao?></td>
             <td scope="col"><?=$item->nome_categoria?></td>
+            <td scope="col"><?=$item->estado?></td>
             <td width=10px;> <a href="/monografia/delete?id_monografia=<?=$item->id_monografia?>"
             class="btn btn-danger"><img src="../images/img/excluir.png" width="20"></a></td>
             <td width=10px;> <a href="/monografia/form?id_monografia=<?=$item->id_monografia?>"

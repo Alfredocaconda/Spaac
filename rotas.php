@@ -3,6 +3,8 @@
 include "Controller/RevisorController.php";
 #controller da monografia
 include "Controller/monografiaController.php";
+#controller da monografia
+include "Controller/monografiaController_admin.php";
 #controller da categoria
 include "Controller/CategoriaController.php";
 #controller da login
@@ -13,9 +15,12 @@ include "Controller/errorController.php";
 include "Controller/RevisaoController.php";
 #Controller Usuário
 include "Controller/usuarioController.php";
+#
 include "Controller/FuncionarioController.php";
 #Controller Artigo
 include "Controller/artigoController.php";
+#Controller Artigo
+include "Controller/artigoController_admin.php";
 #Controller Principal
 include "Controller/principalController.php";
 #Controller Dashboard
@@ -30,9 +35,25 @@ include 'Controller/arquivosController.php';
             # rota da pagina inicial...
             principalController::index();
             break;
+        case '/monografia_':
+            # rota da pagina inicial...
+            principalController::monografia();
+            break;
+        case '/artigo_':
+            # rota da pagina inicial...
+            principalController::artigo();
+            break;
         case '/principal2':
             # rota da pagina inicial...
             principalController::principal2();
+            break;
+        case '/monografia_admin':
+            # rota da pagina inicial...
+            principalController::monografia_admin();
+            break;
+        case '/artigo_admin':
+            # rota da pagina inicial...
+            principalController::artigo_admin();
             break;
         case '/arquivos':
             # rota da pagina inicial...
@@ -78,6 +99,7 @@ include 'Controller/arquivosController.php';
             # rota para autenticar...
             LoginController::autenticar();
             break;
+
         case '/Revisor':
             # chamando a class controlcom a funcao de pagina inicial...
             RevisorController::index();
@@ -177,11 +199,33 @@ include 'Controller/arquivosController.php';
             artigoController::delete();
             break;
             #============================= FIM DAS ROTAS DE artigo
+
+            #======================== rotas de artigo=======================
+        case '/artigo_admin':
+            # chamando a class controlcom a funcao de pagina inicial...
+            artigoController_admin::index();
+            break;
+        case '/artigo_admin/form':
+            # chamando a class control com a funcao de formulario...
+            artigoController_admin::form();
+            break;
+        case '/artigo_admin/form/save':
+            artigoController_admin::save();
+            break;
+        case '/artigo_admin_update/form/save':
+            artigoController_admin::update();
+            break;
+        case '/artigo_admin/delete':
+            artigoController_admin::delete();
+            break;
+            #============================= FIM DAS ROTAS DE artigo
+
             #======================== rotas de artigo=======================
         case '/monografia':
             # chamando a class controlcom a funcao de pagina inicial...
             monografiaController::index();
             break;
+       
         case '/monografia/form':
             # chamando a class control com a funcao de formulario...
             monografiaController::form();
@@ -191,6 +235,27 @@ include 'Controller/arquivosController.php';
             break;
         case '/monografia/delete':
             monografiaController::delete();
+            break;
+            #============================= FIM DAS ROTAS DE artigo
+
+
+            #======================== rotas de artigo=======================
+        case '/monografia_admin':
+            # chamando a class controlcom a funcao de pagina inicial...
+            monografiaController_admin::index();
+            break;
+        case '/monografia_admin/form':
+            # chamando a class control com a funcao de formulario...
+            monografiaController_admin::form();
+            break;
+        case '/monografia_admin/form/save':
+            monografiaController_admin::save();
+            break;
+        case '/monografia_admin_update/form/save':
+            monografiaController_admin::update();
+            break;
+        case '/monografia_admin/delete':
+            monografiaController_admin::delete();
             break;
             #============================= FIM DAS ROTAS DE artigo
 

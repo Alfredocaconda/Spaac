@@ -100,25 +100,6 @@
       </div>
     </section>
     <!--================ Blog slider end =================-->  
-    <!--================ Blog slider start =================--> 
-    <h1> DESTAQUES ARTIGOS CIENTIFICOS</h1>  
-    <section>
-      <div class="container">
-        <div class="owl-carousel owl-theme blog-slider">
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__content">
-              <?php foreach ($artigo->linhas as $item): ?>
-                <h3>Titulo : <?=$item->titulo ?></h3>
-                <p>Autor : <?=$item->nome_usuario ?></p>
-              <?php endforeach ?> 
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--================ Blog slider end =================-->  
-
-    
   <!--================ Start Footer Area =================-->
   <footer class="footer-area section-padding">
     <div class="container">

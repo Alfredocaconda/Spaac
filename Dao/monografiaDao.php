@@ -42,6 +42,15 @@ class monografiaDao{
         $valor->bindValue(10,$model->id_monografia);
         $valor->execute();
     }
+    public function update_admin(monografiaModel $model){
+        $sql="UPDATE monografia SET estado=?,data_submissao=? WHERE id_monografia=?";
+        $valor=$this->conexao->prepare($sql);
+        $valor->bindValue(1,$model->aprovar);
+        $data_actual=date("Y-m-d");
+        $valor->bindValue(2,$data_actual);
+        $valor->bindValue(3,$model->id_monografia);
+        $valor->execute();
+    }
     public function select($nome){
         $valor=null;
         if($nome == ""){
@@ -49,6 +58,22 @@ class monografiaDao{
             $valor=$this->conexao->prepare($sql);
         }else{
             $sql="SELECT * FROM vmonografia where estado='aprovado' and nome_usuario like ? or titulo_monografia like ? or palavra_chave like ?";
+            $valor=$this->conexao->prepare($sql);
+            $pesquisar = "%$nome%"; 
+            $valor->bindValue(1,$pesquisar);
+            $valor->bindValue(2,$pesquisar);
+            $valor->bindValue(3,$pesquisar);
+        }
+        $valor->execute();
+        return $valor->fetchAll(PDO::FETCH_CLASS);
+    }
+    public function select_admin($nome){
+        $valor=null;
+        if($nome == ""){
+            $sql="SELECT * FROM vmonografia";
+            $valor=$this->conexao->prepare($sql);
+        }else{
+            $sql="SELECT * FROM vmonografia where nome_usuario like ? or titulo_monografia like ? or palavra_chave like ?";
             $valor=$this->conexao->prepare($sql);
             $pesquisar = "%$nome%"; 
             $valor->bindValue(1,$pesquisar);
@@ -72,6 +97,7 @@ class monografiaDao{
         $valor->bindValue(1, $id_monografia );
         $valor->execute();
     }
+   
    
 }
 ?>

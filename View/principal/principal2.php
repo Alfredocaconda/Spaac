@@ -43,8 +43,8 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
               <li class="nav-item active"><a class="nav-link" href="">Inicio</a></li> 
-              <li class="nav-item"><a class="nav-link" href="../../lista.php">Artigo Cientificos</a></li> 
-              <li class="nav-item"><a class="nav-link" href="../../lista1.php">Monografia</a></li> 
+              <li class="nav-item"><a class="nav-link" href="/artigo_admin">Artigo Cientificos</a></li> 
+              <li class="nav-item"><a class="nav-link" href="/monografia_admin">Monografia</a></li> 
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Submeter</a>

@@ -3,7 +3,7 @@
 class monografiaModel{
     public $id_monografia,$titulo_monografia,$instituicao_ensino,$resumo_monografia,
     $palavra_chave,$ficheiro,$data_submissao,$id_usuario,$id_categoria, $capa;
-    public $linhas;
+    public $linhas,$aprovar;
     
     public function save(){
         include 'Dao/monografiaDao.php';
@@ -18,10 +18,20 @@ class monografiaModel{
         
         
     }
+    public function update_admin(){
+        include 'Dao/monografiaDao.php';
+        $dados=new monografiaDao();
+            $dados->update_admin($this);
+        }
     public function listar($nome){
         include 'Dao/monografiaDao.php';
         $dados=new monografiaDao();
        $this->linhas= $dados->select($nome);
+    }
+    public function listar_admin($nome){
+        include 'Dao/monografiaDao.php';
+        $dados=new monografiaDao();
+       $this->linhas= $dados->select_admin($nome);
 
     }
     public function listarId(int $id_monografia){

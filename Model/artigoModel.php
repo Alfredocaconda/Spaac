@@ -4,7 +4,7 @@ class artigoModel{
     public $id_artigo,$titulo,$resumo,$caminho_destino,
     $volume,$data_submissao,$palavra_chave,$ficheiro,$id_usuario,
     $id_categoria,$capa;
-    public $linhas;
+    public $linhas,$aprovar;
     
     public function save(){
         include 'Dao/artigoDao.php';
@@ -16,13 +16,22 @@ class artigoModel{
             # code...
             $dados->update($this);
         }
-        
-        
+    }
+    public function update_admin(){
+        include 'Dao/artigoDao.php';
+        $dados=new artigoDao();
+            $dados->update_admin($this);
     }
     public function listar($nome){
         include 'Dao/artigoDao.php';
         $dados=new artigoDao();
        $this->linhas= $dados->select($nome);
+
+    }
+    public function listar_admin($nome){
+        include 'Dao/artigoDao.php';
+        $dados=new artigoDao();
+       $this->linhas= $dados->select_admin($nome);
 
     }
     public function listarId(int $id_artigo){
