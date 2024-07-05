@@ -201,7 +201,7 @@ include 'Controller/arquivosController.php';
             #============================= FIM DAS ROTAS DE artigo
 
             #======================== rotas de artigo=======================
-        case '/artigo_admin':
+        case '/artigo_admin_':
             # chamando a class controlcom a funcao de pagina inicial...
             artigoController_admin::index();
             break;
@@ -209,13 +209,16 @@ include 'Controller/arquivosController.php';
             # chamando a class control com a funcao de formulario...
             artigoController_admin::form();
             break;
-        case '/artigo_admin/form/save':
+        case '/artigo_admin_/form/save':
             artigoController_admin::save();
+            break;
+        case '/artigo_admin_update_2/form':
+            artigoController_admin::form_admin();
             break;
         case '/artigo_admin_update/form/save':
             artigoController_admin::update();
             break;
-        case '/artigo_admin/delete':
+        case '/artigo_admin_/delete':
             artigoController_admin::delete();
             break;
             #============================= FIM DAS ROTAS DE artigo
@@ -240,7 +243,7 @@ include 'Controller/arquivosController.php';
 
 
             #======================== rotas de artigo=======================
-        case '/monografia_admin':
+        case '/monografia_admin_':
             # chamando a class controlcom a funcao de pagina inicial...
             monografiaController_admin::index();
             break;

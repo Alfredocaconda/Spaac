@@ -49,40 +49,29 @@
                <div class="sidebar_blog_2">
                   <h4>GERAL</h4>
                   <ul class="list-unstyled components">
-                  <li><a href="../dashboard"> <img src="../images/img/home2.png" width="30"> <span>Home</span></a></li>
+                  <li><a href="/"> <img src="../images/img/home2.png" width="30"> <span>Home</span></a></li>
 
                      <li class="active">
                         <a href="#dashboard" data-toggle="collapse" aria-expanded="false"
                          class="dropdown-toggle">
-                         <img src="../images/img/cadastro.png" width="30"><span>Cadastro</span></a>
+                         <img src="images/img/cadastro.png" width="30"><span>Cadastrar</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
-                         <li><a href="/Funcionario/form"><img src="images/img/user.png" width="30"> <span>Funcionário</span></a></li>
+                           <li><a href="/Funcionario/form"><img src="images/img/user.png" width="30"> <span>Funcionário</span></a></li>
                            <li><a href="/monografia_admin/form"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
                            <li><a href="/artigo_admin/form"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
                            <li><a href="/categoria/form"><img src="images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
                            <li><a href="Revisao/form"><img src="images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
                            <li><a href="/Revisor/form"> <img src="images/img/revisor.png" width="30"><span>Revisor</span></a></li>
-                           
                         </ul>
                      </li>
-
                      <li>
-                        <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Lista de Arquivos</span></a>
+                        <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Listar</span></a>
                         <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="usuario"><img src="../images/img/cadUser2.png" width="30"> <span>Usuário</span></a></li>
-                           <li><a href="autor"><img src="../images/img/user.png" width="30"> <span> <span>Autores</span></a></li>
-                           <li><a href="monografia"> <img src="../images/img/monografia.png" width="30"><span>Monografias</span></a></li>
-                           <li><a href="artigo"> <img src="../images/img/artigo.png" width="30"><span>Artigos Científicos</span></a></li>
-                           <li><a href="categoria"> <img src="../images/img/categoria.png" width="30"><span>Categória</span></a></li>
-                           <li><a href="Revisao"><img src="../images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
-                           <li><a href="Revisor"><img src=".../images/img/revisor.png" width="30"> <span>Revisor</span></a></li>
+                        <li><a href="/monografia_admin_"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
+                        <li><a href="/artigo_admin_"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="../index.php"><!--<i class="fa fa-cog yellow_color"></i>--> <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
-                     
-                     </li>
-                     </li>
-                     
+                     <li><a href="/principal2"><img src="images/img/blog.png" width="30"> <span>Blog - SPAAC</span></a></li>
                   </ul>
                </div>
             </nav>
@@ -95,7 +84,7 @@
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
-                           <a href="/dashboard">
+                           <a href="/">
                              <img class="img-responsive" src="../../../images/logo/SPAACbranco.png" alt="#" />
                            </a>
                         </div>
@@ -133,6 +122,7 @@
             <th scope="col">DATA SUBMISSÃO</th>
             <th scope="col">AUTOR</th>
             <th scope="col">CATEGORIA</th>
+            <th scope="col">ESTADO</th>
             <th scope="col">OPÇÕES</th>
         </tr>
         <?php foreach ($model->linhas as $item): ?>
@@ -142,10 +132,11 @@
             <td scope="col"><?=$item->data_submissao?></td>
             <td scope="col"><?=$item->nome_usuario?></td>
             <td scope="col"><?=$item->nome_categoria?></td>
+            <td scope="col"><?=$item->estado?></td>
             <td width=10px;> <a href="/monografia_admin/delete?id_monografia=<?=$item->id_monografia?>"
-            class="btn btn-danger"><img src="../images/img/excluir.png" width="20">Delete</a></td>
+            class="btn btn-danger"><img src="../images/img/excluir.png" width="20">Apagar</a></td>
             <td width=10px;> <a href="/monografia_admin/form?id_monografia=<?=$item->id_monografia?>"
-            class="btn btn-success"><img src="../images/img/editar.png" width="20">Update</a> </td>
+            class="btn btn-success"><img src="../images/img/editar.png" width="20">Aprovar</a> </td>
             <td width=10px; > <a href="" class="btn btn-primary" style="padding-bottom: 10px;">Baixar</a> </td>
         </tr>
         <?php endforeach ?> 

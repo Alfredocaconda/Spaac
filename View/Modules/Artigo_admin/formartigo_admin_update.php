@@ -47,31 +47,31 @@
                   </div>
                </div>
                <div class="sidebar_blog_2">
-                  <h4>Menu</h4>
+                  <h4>GERAL</h4>
                   <ul class="list-unstyled components">
-                  <li><a href="/dashboard"> <img src="../images/img/home2.png" width="30"> <span>Home</span></a></li>
+                  <li><a href="/"> <img src="../images/img/home2.png" width="30"> <span>Home</span></a></li>
 
                      <li class="active">
                         <a href="#dashboard" data-toggle="collapse" aria-expanded="false"
                          class="dropdown-toggle">
-                         <img src="../images/img/cadastro.png" width="30"><span>Cadastro</span></a>
+                         <img src="images/img/cadastro.png" width="30"><span>Cadastrar</span></a>
                          <ul class="collapse list-unstyled" id="dashboard">
-                            
-                         <li><a href="/Funcionario/form"><img src="images/img/user.png" width="30"> <span>Funcionário</span></a></li>
+                           <li><a href="/Funcionario/form"><img src="images/img/user.png" width="30"> <span>Funcionário</span></a></li>
                            <li><a href="/monografia_admin/form"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
                            <li><a href="/artigo_admin/form"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
                            <li><a href="/categoria/form"><img src="images/img/categoria.png" width="30"> <span>Categoria</span></a></li>
                            <li><a href="Revisao/form"><img src="images/img/revisao.png" width="30"> <span>Revisão</span></a></li>
                            <li><a href="/Revisor/form"> <img src="images/img/revisor.png" width="30"><span>Revisor</span></a></li>
-                           
                         </ul>
                      </li>
-
-                     <li><a href="../index.php"><!--<i class="fa fa-cog yellow_color"></i>--> <img src="../images/img/blog.png" width="30"> <span>Bloguer - SPAAC</span></a></li>
-                     
+                     <li>
+                        <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Listar</span></a>
+                        <ul class="collapse list-unstyled" id="apps">
+                        <li><a href="/monografia_admin_"><img src="images/img/monografia.png" width="30"> <span>Monografias</span></a></li>
+                        <li><a href="/artigo_admin_"><img src="images/img/artigo.png" width="30"> <span>Artigos Científicos</span></a></li>
+                        </ul>
                      </li>
-                     </li>
-                     
+                     <li><a href="/principal2"><img src="images/img/blog.png" width="30"> <span>Blog - SPAAC</span></a></li>
                   </ul>
                </div>
             </nav>
@@ -84,7 +84,7 @@
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
-                           <a href="/dashboard">
+                           <a href="/">
                         
                               <img class="img-responsive" src="../../../images/logo/SPAACbranco.png" alt="#" />
                            </a>
@@ -124,7 +124,7 @@
                      </div>
             
        <form action="/artigo_admin_update/form/save" method="Post" enctype="multipart/form-data" class="row g-3">
-        <input type="hidden" name="id_artigo"  value="<?= $model->id_artigo ?>" >
+        <input type="text" name="id_artigo"  value="<?= $model->id_artigo_cientifico ?>" >
         <div class="col-md-6">
         <label for="inputEmail4" class="form-label">TITULO</label>
         <input type="text" class="form-control" value="<?= $model->titulo ?>" id="inputEmail4" 
@@ -138,11 +138,6 @@
         </div>
         
         <div class="col-md-6">
-        <label for="palavra_chave" class="form-label">PALAVRA CHAVE</label>
-        <input type="text" class="form-control" id="inputAddress"
-         value="<?= $model->palavra_chave ?>" placeholder="DIGITE AQUI A SUA PALAVRA CHAVE" >
-        </div>
-        <div class="col-md-6">
          <br>
          <select name="aprovar" id="aprovar">
             <option>SELECIONAR O ESTADO</option>
@@ -155,8 +150,7 @@
          <br>
         <button type="submit" class="btn btn-primary"><img src="../images/img/verificar.png" width="30">Guardar</button>
         <button type="reset" class="btn btn-primary" id="btnClean"><img src="../images/img/delete.png" width="30">Limpar</button>
-        <a href="/artigo" class="btn btn-primary" id="btnVerRegisto"><img src="../images/img/ver.png" width="30">Ver os registos</a>
-        </div>
+   
     </form>
     </div>
                   <!-- footer -->

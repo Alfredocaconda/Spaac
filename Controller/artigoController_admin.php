@@ -26,6 +26,15 @@ public static function form(){
     Middleware::auth();
     include 'View/Modules/Artigo_admin/formartigo.php';
 } 
+
+public static function form_admin(){
+    include "Model/artigoModel.php";
+    $model=new artigoModel();
+    if (isset($_GET['id_artigo']))
+    $model= $model->listarId((int) $_GET['id_artigo']);
+    Middleware::auth();
+    include 'View/Modules/Artigo_admin/formartigo_admin_update.php';
+} 
 public static function save(){
     include "Model/artigoModel.php";
     $model=new artigoModel();
@@ -53,18 +62,17 @@ public static function save(){
 }
     $model->save();
     Middleware::auth();
-    header("Location: /artigo_admin");
+    header("Location: /artigo_admin_");
     }
 }
 public static function update(){
     include "Model/artigoModel.php";
-    
     $model=new artigoModel();
     $model->id_artigo=$_POST['id_artigo'];
     $model->aprovar=$_POST['aprovar'];
     $model->update_admin();
     Middleware::auth();
-    header("Location: /artigo_admin");
+    header("Location: /artigo_admin_");
     
 }
 public static function delete(){
@@ -72,7 +80,7 @@ public static function delete(){
     $model=new artigoModel();
     $model->delete((int) $_GET['id_artigo']);
     Middleware::auth();
-    header("Location: /artigo_admin");
+    header("Location: /artigo_admin_");
 }
 }
 ?>

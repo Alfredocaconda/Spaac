@@ -56,7 +56,7 @@ public static function save(){
     $model->save();
 
     Middleware::auth();
-    header("Location: /monografia_admin");
+    header("Location: /monografia_admin_");
 }
 public static function update(){
     include "Model/monografiaModel.php";
@@ -65,7 +65,7 @@ public static function update(){
     $model->aprovar=$_POST['aprovar'];
     $model->update_admin();
     Middleware::auth();
-    header("Location: /monografia_admin");
+    header("Location: /monografia_admin_");
 }
 public static function delete(){
     include "Model/monografiaModel.php";
@@ -73,7 +73,7 @@ public static function delete(){
     $model=new monografiaModel();
     $model->delete((int) $_GET['id_monografia']);
     Middleware::auth();
-    header("Location: /monografia_admin");
+    header("Location: /monografia_admin_");
 
 }
 }

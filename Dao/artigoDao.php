@@ -70,7 +70,7 @@ class artigoDao{
     public function select_admin($nome){
         $valor=null;
         if($nome == ""){
-            $sql="SELECT * FROM vartigo ";
+            $sql="SELECT * FROM vartigo";
             $valor=$this->conexao->prepare($sql);
         }else{
             $sql="SELECT * FROM vartigo where nome_usuario like ? or titulo like ? or palavra_chave like ?";
